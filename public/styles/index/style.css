@@ -1,0 +1,319 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic';
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+[class*="col-"] {
+  float: left;
+}
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+@media only screen and (min-width: 769px) {
+  .col-12 {
+    width: 100%;
+  }
+  .col-11 {
+    width: 91.66666667%;
+  }
+  .col-10 {
+    width: 83.33333333%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-8 {
+    width: 66.66666667%;
+  }
+  .col-7 {
+    width: 58.33333333%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-5 {
+    width: 41.66666667%;
+  }
+  .col-4 {
+    width: 33.33333333%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-2 {
+    width: 16.66666667%;
+  }
+  .col-1 {
+    width: 8.33333333%;
+  }
+}
+@media only screen and (max-width: 769px) {
+  .col-s-12 {
+    width: 100%;
+  }
+  .col-s-11 {
+    width: 91.66666667%;
+  }
+  .col-s-10 {
+    width: 83.33333333%;
+  }
+  .col-s-9 {
+    width: 75%;
+  }
+  .col-s-8 {
+    width: 66.66666667%;
+  }
+  .col-s-7 {
+    width: 58.33333333%;
+  }
+  .col-s-6 {
+    width: 50%;
+  }
+  .col-s-5 {
+    width: 41.66666667%;
+  }
+  .col-s-4 {
+    width: 33.33333333%;
+  }
+  .col-s-3 {
+    width: 25%;
+  }
+  .col-s-2 {
+    width: 16.66666667%;
+  }
+  .col-s-1 {
+    width: 8.33333333%;
+  }
+}
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+html,
+body {
+  height: 100%;
+}
+.main-menu,
+.intro,
+main,
+footer {
+  padding: 0 5%;
+}
+nav ul li {
+  display: inline-block;
+  margin: 0 25px;
+}
+nav ul li a {
+  color: #CAD2C5;
+}
+nav ul li a:hover,
+nav ul li a.active {
+  color: #a3b19a;
+}
+@media only screen and (max-width: 857px) {
+  nav ul li {
+    margin: 0 15px;
+  }
+}
+address {
+  font-style: normal;
+}
+header {
+  background: url("../../img/mac.jpg");
+  background-position: 340px 1px;
+}
+header .main-menu {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: rgba(17, 21, 28, 0.6);
+}
+header .main-menu .logo-wrap {
+  min-width: 150px;
+}
+header .main-menu .main-nav ul {
+  padding-top: 17px;
+}
+header .main-menu address {
+  color: #CAD2C5;
+  float: right;
+  padding-top: 17px;
+  position: relative;
+}
+header .main-menu address::before {
+  content: "";
+  background: url("../../img/technology.png");
+  background-size: cover;
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  margin-top: -3px;
+}
+header .main-menu .btn-menu {
+  display: none;
+  transform: translateY(0.5em);
+  width: 2em;
+  height: 2em;
+  float: right;
+  background: url("../../img/menu.png");
+  background-size: cover;
+}
+header .main-menu .logo-small {
+  display: none;
+}
+@media only screen and (max-width: 769px) {
+  header .main-menu .main-nav,
+  header .main-menu address {
+    display: none;
+  }
+  header .main-menu .btn-menu {
+    display: block;
+  }
+  header .main-menu .logo-big {
+    display: none;
+  }
+  header .main-menu .logo-small {
+    text-decoration: none;
+    color: #CAD2C5;
+    border: 1px solid #CAD2C5;
+    position: relative;
+    display: inline-block;
+    font-size: inherit;
+  }
+  header .main-menu .logo-small h1 {
+    font-weight: normal;
+  }
+  header .main-menu .logo-small::before {
+    content: "";
+    background: url("../../img/light-bulb.png");
+    display: block;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -19px;
+  }
+  header .main-menu .logo-small::before {
+    right: 5px;
+    background: url("../../img/light-bulb.png");
+  }
+}
+header .intro {
+  color: #CAD2C5;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+.logo-big {
+  display: inline-block;
+  text-decoration: none;
+  color: #CAD2C5;
+  border: 1px solid #CAD2C5;
+  position: relative;
+  width: 150px;
+  padding-left: 10px;
+}
+.logo-big h1 {
+  font-weight: normal;
+}
+.logo-big::before {
+  content: "";
+  background: url("../../img/light-bulb.png");
+  display: block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -19px;
+}
+.logo-small {
+  display: inline-block;
+  text-decoration: none;
+  color: #11151C;
+  border: 1px solid #11151C;
+  position: relative;
+  font-size: 2em;
+  width: 65px;
+  padding-left: 5px;
+}
+.logo-small h1 {
+  font-weight: normal;
+}
+.logo-small::before {
+  content: "";
+  background: url("../../img/light-bulb.png");
+  display: block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -19px;
+}
+.logo-small::before {
+  right: 5px;
+  margin-top: -17px;
+  background: url("../../img/dark-bulb.png");
+}
+.footer-push {
+  min-height: 100%;
+  /*min-height: 100%;
+	margin-bottom: -@footer-height;
+
+	&::after {
+		height: @footer-height;
+	}*/
+}
+footer {
+  height: 70px;
+  background: rgba(17, 21, 28, 0.9);
+  margin-top: 75px;
+  padding-top: 12.5px;
+  padding-bottom: 12.5px;
+}
+@media only screen and (max-width: 769px) {
+  footer {
+    display: none;
+  }
+}
+footer .author {
+  float: right;
+  color: #CAD2C5;
+  padding-top: 17px;
+}
+footer .footer-nav ul {
+  padding-top: 17px;
+}
+.top-courses .title {
+  text-align: center;
+  padding: 30px 0;
+  color: #11151C;
+}
+.top-courses .course {
+  padding: 0 15px;
+}
+.top-courses .course img {
+  width: 100%;
+  height: 253px;
+  border: 1px solid #11151C;
+  margin-bottom: 20px;
+}
+.top-courses .course p a {
+  color: #3066BE;
+  text-decoration: none;
+}
+.top-courses .course p a:hover {
+  color: #214581;
+}
+@media only screen and (max-width: 769px) {
+  .top-courses .course {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+}
