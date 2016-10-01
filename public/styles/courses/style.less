@@ -1,0 +1,108 @@
+@import "../base/base";
+
+.courses {
+	.title {
+		color: @dark-grey;
+		padding: 15px 0;
+	}
+
+	#sort-options {
+		color: @dark-grey;
+
+		select {
+			color: @blue;
+		}
+	}
+
+	.courses-container {
+		.course {
+			margin-top: 25px;
+			padding: 15px;
+			background-color: fade(@dark-grey, 15%);
+			border-right: 15px solid white;
+
+			img {
+				width: 100%;
+				border: 1px solid @dark-grey;
+				margin-bottom: 10px;
+			}
+
+			.description {
+				color: @dark-grey;
+			}
+
+			@like-size: 24px;
+
+			a {
+				color: @blue;
+				text-decoration: none;
+				display: block;
+			}
+
+			.reference {
+				float: left;
+				padding-top: @like-size - 2;
+			}
+
+			.like {
+				float: right;
+				width: @like-size;
+				height: @like-size * 2;
+				text-align: center;
+				font-size: 0.9em;
+
+				div {
+					width: @like-size;
+					height: @like-size;
+					background: url("@{img-path}star.png");
+				}
+			}
+
+			@media only screen and (max-width: @width-media) {
+				border: none;
+			}
+		}
+	}
+}
+
+.pagination {
+	display: block;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: -20px;
+	color: @dark-grey;
+}
+
+.pagination-big { display: none; }
+.pagination-small { display: none; }
+
+@media only screen and (min-width: @width-media) {
+	.pagination-big {
+		.pagination;
+
+		ul {
+			display: inline;
+			list-style-type: none;
+
+			li {
+				display: inline;
+
+				a {
+					text-decoration: none;
+					color: @blue;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: @width-media) {
+	.pagination-small {
+		.pagination;
+		font-size: 	1.5em;
+		a {
+			color: 	@blue;
+		}	
+	}
+}
+

@@ -3,6 +3,7 @@
 
 @white: #CAD2C5;
 @dark-grey: #11151C;
+@green: #2db34a;
 @blue: #3066BE;
 @light-blue: lighten(@blue, 30%);
 @black: #000;
@@ -152,6 +153,10 @@ header {
 		right: 10px;
 		top: 50%;
 		margin-top: -19px;
+	}
+
+	&:hover::before {
+		background: url("@{img-path}yellow-bulb.png");
 	}
 }
 

@@ -1,3 +1,4 @@
 {
-	"less": "styles/index/"
+	"less": "styles/index/",
+	"less": "styles/courses/"
 }
