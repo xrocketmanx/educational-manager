@@ -12,6 +12,11 @@
 		select {
 			color: @blue;
 		}
+
+		@media only screen and (max-width: @width-media) {
+			label { display: block; margin-top: 10px; }
+			.separator { display: none; }
+		}
 	}
 
 	.courses-container {
@@ -59,6 +64,7 @@
 
 			@media only screen and (max-width: @width-media) {
 				border: none;
+				padding: 0;
 			}
 		}
 	}

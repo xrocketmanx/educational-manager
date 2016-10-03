@@ -101,6 +101,14 @@ main,
 footer {
   padding: 0 5%;
 }
+@media only screen and (max-width: 857px) {
+  .main-menu,
+  .intro,
+  main,
+  footer {
+    padding: 0 2%;
+  }
+}
 nav ul li {
   display: inline-block;
   margin: 0 25px;
@@ -314,6 +322,15 @@ footer .footer-nav ul {
 .courses #sort-options select {
   color: #3066BE;
 }
+@media only screen and (max-width: 769px) {
+  .courses #sort-options label {
+    display: block;
+    margin-top: 10px;
+  }
+  .courses #sort-options .separator {
+    display: none;
+  }
+}
 .courses .courses-container .course {
   margin-top: 25px;
   padding: 15px;
@@ -351,6 +368,7 @@ footer .footer-nav ul {
 @media only screen and (max-width: 769px) {
   .courses .courses-container .course {
     border: none;
+    padding: 0;
   }
 }
 .pagination {
