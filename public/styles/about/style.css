@@ -304,98 +304,40 @@ footer .author {
 footer .footer-nav ul {
   padding-top: 17px;
 }
-.courses .title {
-  color: #11151C;
+header {
+  background: none;
+}
+.footer-push {
+  position: relative;
+  background: rgba(17, 21, 28, 0.6);
+}
+.footer-push::after {
+  content: "";
+  background: url("../../img/bicycle.jpg") no-repeat;
+  background-size: cover;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+.about .title {
+  color: #CAD2C5;
   padding: 15px 0;
 }
-.courses #sort-options {
-  color: #11151C;
+.about h3 {
+  color: #CAD2C5;
+  padding: 15px 0 5px 0;
 }
-.courses #sort-options select {
-  color: #3066BE;
-}
-.courses .courses-container .course {
-  margin-top: 25px;
-  padding: 15px;
-  border-right: 15px solid transparent;
-}
-.courses .courses-container .course img {
-  width: 100%;
-  border: 1px solid #11151C;
-  margin-bottom: 10px;
-}
-.courses .courses-container .course .description {
-  color: #11151C;
-}
-.courses .courses-container .course a {
-  color: #3066BE;
+.about a {
+  color: #638fd8;
   text-decoration: none;
-  display: block;
 }
-.courses .courses-container .course .reference {
-  float: left;
-  padding-top: 22px;
+.about a:hover {
+  color: #214581;
 }
-.courses .courses-container .course .like {
-  float: right;
-  width: 24px;
-  height: 48px;
-  text-align: center;
-  font-size: 0.9em;
-}
-.courses .courses-container .course .like div {
-  width: 24px;
-  height: 24px;
-  background: url("../../img/star.png");
-}
-@media only screen and (max-width: 769px) {
-  .courses .courses-container .course {
-    border: none;
-  }
-}
-.pagination {
-  display: block;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: -20px;
-  color: #11151C;
-}
-.pagination-big {
-  display: none;
-}
-.pagination-small {
-  display: none;
-}
-@media only screen and (min-width: 769px) {
-  .pagination-big {
-    display: block;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: -20px;
-    color: #11151C;
-  }
-  .pagination-big ul {
-    display: inline;
-    list-style-type: none;
-  }
-  .pagination-big ul li {
-    display: inline;
-  }
-  .pagination-big ul li a {
-    text-decoration: none;
-    color: #3066BE;
-  }
-}
-@media only screen and (max-width: 769px) {
-  .pagination-small {
-    display: block;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: -20px;
-    color: #11151C;
-    font-size: 1.5em;
-  }
-  .pagination-small a {
-    color: #3066BE;
-  }
+.about p {
+  color: #CAD2C5;
 }

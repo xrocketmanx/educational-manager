@@ -272,6 +272,7 @@ header .intro {
 }
 .footer-push {
   min-height: 100%;
+  padding-bottom: 75px;
   /*min-height: 100%;
 	margin-bottom: -@footer-height;
 
@@ -279,10 +280,14 @@ header .intro {
 		height: @footer-height;
 	}*/
 }
+@media only screen and (max-width: 769px) {
+  .footer-push {
+    padding-bottom: 0;
+  }
+}
 footer {
   height: 70px;
   background: rgba(17, 21, 28, 0.9);
-  margin-top: 75px;
   padding-top: 12.5px;
   padding-bottom: 12.5px;
 }

@@ -1,4 +1,5 @@
 {
 	"less": "styles/index/",
-	"less": "styles/courses/"
+	"less": "styles/courses/",
+	"less": "styles/about/"
 }

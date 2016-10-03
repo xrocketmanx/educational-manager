@@ -1,0 +1,48 @@
+@import "../base/base";
+
+header {
+	background: none;
+}
+
+.footer-push {
+	position: relative;
+	background: fade(@dark-grey, 60%);
+}
+
+.footer-push::after {
+	content: "";
+	background: url("@{img-path}bicycle.jpg") no-repeat;
+	background-size: cover;
+	opacity: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.about {
+	.title {
+		color: @white;
+		padding: 15px 0;
+	}
+
+	h3 {
+		color: @white;
+		padding: 15px 0 5px 0;
+	}
+
+	a {
+		color: lighten(@blue, 15%);
+		text-decoration: none;
+
+		&:hover {
+			color: darken(@blue, 15%);
+		}
+	}
+
+	p {
+		color: @white;
+	}
+}
