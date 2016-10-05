@@ -12,7 +12,7 @@
   display: block;
   clear: both;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 770px) {
   .col-12 {
     width: 100%;
   }
@@ -101,7 +101,7 @@ main,
 footer {
   padding: 0 5%;
 }
-@media only screen and (max-width: 857px) {
+@media only screen and (max-width: 769px) {
   .main-menu,
   .intro,
   main,
@@ -120,7 +120,7 @@ nav ul li a:hover,
 nav ul li a.active {
   color: #a3b19a;
 }
-@media only screen and (max-width: 857px) {
+@media only screen and (max-width: 900px) {
   nav ul li {
     margin: 0 15px;
   }
