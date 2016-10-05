@@ -92,12 +92,16 @@ header {
 			}
 		}
 
+		#btn-menu {
+			display: none;
+		}
+
 		.btn-menu {
+			cursor: pointer;
 			display: none;
 			transform: translateY(0.5em);
 			width: 2em;
 			height: 2em;
-			float: right;
 			background: url("@{img-path}menu.png");
 			background-size: cover;
 		}
@@ -107,11 +111,40 @@ header {
 		}
 
 		@media only screen and (max-width: @width-media) {
-			.main-nav, address {
+			.main-nav ul, address {
 				display: none;
 			}
-			.btn-menu {
-				display: block;
+			.main-nav {
+				float: right; 
+
+				.btn-menu {
+					display: block;
+				}
+
+				#btn-menu:checked + ul {
+					background: fade(@dark-grey, 90%);
+					display: block;
+					position: absolute;
+					right: 0;
+					top: 64px;
+					text-align: center;
+					padding-top: 0;
+					li {
+						margin: 0;
+						display: block;
+
+						a { 
+							font-size: 1.5em;
+							display: block;
+							text-decoration: none; 
+							padding: 10px 5px;
+							border-bottom: 1px solid @white;
+						}
+					}
+					li:last-child {
+						border: none;
+					}
+				}
 			}
 			.logo-big {
 				display: none;

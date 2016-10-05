@@ -162,12 +162,15 @@ header .main-menu address::before {
   top: 50%;
   margin-top: -3px;
 }
+header .main-menu #btn-menu {
+  display: none;
+}
 header .main-menu .btn-menu {
+  cursor: pointer;
   display: none;
   transform: translateY(0.5em);
   width: 2em;
   height: 2em;
-  float: right;
   background: url("../../img/menu.png");
   background-size: cover;
 }
@@ -175,12 +178,38 @@ header .main-menu .logo-small {
   display: none;
 }
 @media only screen and (max-width: 769px) {
-  header .main-menu .main-nav,
+  header .main-menu .main-nav ul,
   header .main-menu address {
     display: none;
   }
-  header .main-menu .btn-menu {
+  header .main-menu .main-nav {
+    float: right;
+  }
+  header .main-menu .main-nav .btn-menu {
     display: block;
+  }
+  header .main-menu .main-nav #btn-menu:checked + ul {
+    background: rgba(17, 21, 28, 0.9);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 64px;
+    text-align: center;
+    padding-top: 0;
+  }
+  header .main-menu .main-nav #btn-menu:checked + ul li {
+    margin: 0;
+    display: block;
+  }
+  header .main-menu .main-nav #btn-menu:checked + ul li a {
+    font-size: 1.5em;
+    display: block;
+    text-decoration: none;
+    padding: 10px 5px;
+    border-bottom: 1px solid #CAD2C5;
+  }
+  header .main-menu .main-nav #btn-menu:checked + ul li:last-child {
+    border: none;
   }
   header .main-menu .logo-big {
     display: none;
