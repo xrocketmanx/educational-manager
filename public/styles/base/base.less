@@ -17,34 +17,129 @@ html, body {
 	height: 100%;
 }
 
-.main-menu, .intro, main, footer {
-	padding: 0 5%;
+/*
+**==========================
+**
+**STANDART ELEMENTS
+**
+**==========================
+*/
+
+.container {
+	padding-left: 5%;
+	padding-right: 5%;
 
 	@media only screen and (max-width: @width-media) {
-		padding: 0 2%;
+		padding-left: 2%;
+		padding-right: 2%;
 	}
 }
 
-nav {
-	ul {
-		li {
-			display: inline-block;
-			margin: 0 25px;
-			a {
-				color: @white;
+.anchor(@color) {
+	color: @color;
 
-				&:hover, &.active {
-					color: darken(@white, 15%);
-				}
-				&:visited {
-					//color: @light-blue;
-				}
-			}
+	&:hover, &.active {
+		color: darken(@color, 15%);
+	}
+}
 
-			@media only screen and (max-width: 900px) {
-				margin: 0 15px;
-			}
-		}
+.phone {
+	color: @white;
+	position: relative;
+
+	&::before {
+		content: "";
+		background: url("@{img-path}technology.png");
+		background-size: cover;
+		display: block;
+		width: 16px;
+		height: 16px;
+		position: absolute;
+		left: -25px;
+		top: 50%;
+		margin-top: -3px;
+	}
+}
+
+.btn-menu {
+	cursor: pointer;
+	display: block;
+	transform: translateY(0.5em);
+	width: 2em;
+	height: 2em;
+	background: url("@{img-path}menu.png");
+	background-size: cover;
+}
+
+.logo(@color, @img) {
+	font-size: 32px;
+	display: inline-block;
+	text-decoration: none;
+	color: @color;
+	border: 1px solid @color;
+	position: relative;
+
+	h1 {
+		font-weight: normal;
+		font-size: inherit;
+	}
+
+	&::before {
+		content: "";
+		background: url("@{img-path}@{img}.png");
+		display: block;
+		width: 32px;
+		height: 32px;
+		position: absolute;
+		top: 50%;
+	}
+
+	&:hover::before {
+		background: url("@{img-path}yellow-bulb.png");
+	}
+}
+
+.logo-dark { .logo(@dark-grey, 'dark-bulb'); }
+.logo-light { .logo(@white, 'light-bulb'); }
+
+.logo-big {
+	width: 150px;
+	padding-left: 10px;
+
+	&::before {
+		right: 10px;
+		margin-top: -19px;
+	}
+}
+
+.logo-small {
+	width: 65px;
+	padding-left: 5px;
+
+	&::before {
+		right: 5px;
+		margin-top: -17px;
+	}
+}
+
+/*
+**==========================
+**
+**CUSTOM STYLES
+**
+**==========================
+*/
+@nav-top-padding: 17px;
+
+.nav-list li {
+	display: inline-block;
+	margin: 0 25px;
+	a {
+		.anchor(@white);
+	}
+
+	@media only screen and (max-width: 900px) {
+		margin: 0 15px;
 	}
 }
 
@@ -56,6 +151,12 @@ header {
 	background: url("@{img-path}mac.jpg");
 	background-position: 340px 1px;
 
+	.intro {
+		color: @white;
+		padding-top: 35px;
+		padding-bottom: 35px;
+	}
+
 	.main-menu {
 		position: relative;
 		padding-top: 20px;
@@ -66,44 +167,22 @@ header {
 			min-width: 150px;
 		}
 
-		.main-nav {
-			ul {
-				padding-top: 17px;
-			}
+		.nav-list {
+			padding-top: @nav-top-padding;
 		}
 
 		address {
-			color: @white;
+			.phone;
 			float: right;
-			padding-top: 17px;
-			position: relative;
-
-			&::before {
-				content: "";
-				background: url("@{img-path}technology.png");
-				background-size: cover;
-				display: block;
-				width: 16px;
-				height: 16px;
-				position: absolute;
-				left: -25px;
-				top: 50%;
-				margin-top: -3px;
-			}
+			padding-top: @nav-top-padding;
 		}
 
 		#btn-menu {
 			display: none;
 		}
 
-		.btn-menu {
-			cursor: pointer;
-			display: block;
-			transform: translateY(0.5em);
-			width: 2em;
-			height: 2em;
-			background: url("@{img-path}menu.png");
-			background-size: cover;
+		.logo-small::before {
+			margin-top: -19px;
 		}
 
 		@media only screen and (max-width: @width-media) {
@@ -137,77 +216,14 @@ header {
 					}
 				}
 			}
-			.logo-small {
-				.logo(@white);
-				display: inline-block;
-				font-size: inherit;
-
-				&::before {
-					right: 5px;
-					background: url("@{img-path}light-bulb.png");
-				}
-			}
 		}
-	}
-
-	.intro {
-		color: @white;
-		padding-top: 35px;
-		padding-bottom: 35px;
-	}
-}
-
-.logo(@color) {
-	display: inline-block;
-	text-decoration: none;
-	color: @color;
-	border: 1px solid @color;
-	position: relative;
-
-	h1 {
-		font-weight: normal;
-	}
-
-	&::before {
-		content: "";
-		background: url("@{img-path}light-bulb.png");
-		display: block;
-		width: 32px;
-		height: 32px;
-		position: absolute;
-		right: 10px;
-		top: 50%;
-		margin-top: -19px;
-	}
-
-	&:hover::before {
-		background: url("@{img-path}yellow-bulb.png");
-	}
-}
-
-.logo-big {
-	.logo(@white);
-	width: 150px;
-	padding-left: 10px;
-}
-
-.logo-small {
-	.logo(@dark-grey);
-	font-size: 2em;
-	width: 65px;
-	padding-left: 5px;
-
-	&::before {
-		right: 5px;
-		margin-top: -17px;
-		background: url("@{img-path}dark-bulb.png");
 	}
 }
 
 @footer-height: 70px;
 .footer-push {
 	min-height: 100%;
-	padding-bottom: 75px;
+	padding-bottom: @footer-height + 5;
 	/*min-height: 100%;
 	margin-bottom: -@footer-height;
 
@@ -229,12 +245,10 @@ footer {
 	.author {
 		float: right;
 		color: @white;
-		padding-top: 17px;
+		padding-top: @nav-top-padding;
 	}
 
-	.footer-nav {
-		ul {
-			padding-top: 17px;
-		}
+	.footer-nav ul {
+		padding-top: @nav-top-padding;
 	}
 }

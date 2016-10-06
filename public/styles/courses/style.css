@@ -101,33 +101,132 @@ html,
 body {
   height: 100%;
 }
-.main-menu,
-.intro,
-main,
-footer {
-  padding: 0 5%;
+/*
+**==========================
+**
+**STANDART ELEMENTS
+**
+**==========================
+*/
+.container {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 @media only screen and (max-width: 769px) {
-  .main-menu,
-  .intro,
-  main,
-  footer {
-    padding: 0 2%;
+  .container {
+    padding-left: 2%;
+    padding-right: 2%;
   }
 }
-nav ul li {
+.phone {
+  color: #CAD2C5;
+  position: relative;
+}
+.phone::before {
+  content: "";
+  background: url("../../img/technology.png");
+  background-size: cover;
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  margin-top: -3px;
+}
+.btn-menu {
+  cursor: pointer;
+  display: block;
+  transform: translateY(0.5em);
+  width: 2em;
+  height: 2em;
+  background: url("../../img/menu.png");
+  background-size: cover;
+}
+.logo-dark {
+  font-size: 32px;
+  display: inline-block;
+  text-decoration: none;
+  color: #11151C;
+  border: 1px solid #11151C;
+  position: relative;
+}
+.logo-dark h1 {
+  font-weight: normal;
+  font-size: inherit;
+}
+.logo-dark::before {
+  content: "";
+  background: url("../../img/dark-bulb.png");
+  display: block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 50%;
+}
+.logo-dark:hover::before {
+  background: url("../../img/yellow-bulb.png");
+}
+.logo-light {
+  font-size: 32px;
+  display: inline-block;
+  text-decoration: none;
+  color: #CAD2C5;
+  border: 1px solid #CAD2C5;
+  position: relative;
+}
+.logo-light h1 {
+  font-weight: normal;
+  font-size: inherit;
+}
+.logo-light::before {
+  content: "";
+  background: url("../../img/light-bulb.png");
+  display: block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 50%;
+}
+.logo-light:hover::before {
+  background: url("../../img/yellow-bulb.png");
+}
+.logo-big {
+  width: 150px;
+  padding-left: 10px;
+}
+.logo-big::before {
+  right: 10px;
+  margin-top: -19px;
+}
+.logo-small {
+  width: 65px;
+  padding-left: 5px;
+}
+.logo-small::before {
+  right: 5px;
+  margin-top: -17px;
+}
+/*
+**==========================
+**
+**CUSTOM STYLES
+**
+**==========================
+*/
+.nav-list li {
   display: inline-block;
   margin: 0 25px;
 }
-nav ul li a {
+.nav-list li a {
   color: #CAD2C5;
 }
-nav ul li a:hover,
-nav ul li a.active {
+.nav-list li a:hover,
+.nav-list li a.active {
   color: #a3b19a;
 }
 @media only screen and (max-width: 900px) {
-  nav ul li {
+  .nav-list li {
     margin: 0 15px;
   }
 }
@@ -138,6 +237,11 @@ header {
   background: url("../../img/mac.jpg");
   background-position: 340px 1px;
 }
+header .intro {
+  color: #CAD2C5;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
 header .main-menu {
   position: relative;
   padding-top: 20px;
@@ -147,14 +251,14 @@ header .main-menu {
 header .main-menu .logo-wrap {
   min-width: 150px;
 }
-header .main-menu .main-nav ul {
+header .main-menu .nav-list {
   padding-top: 17px;
 }
 header .main-menu address {
   color: #CAD2C5;
+  position: relative;
   float: right;
   padding-top: 17px;
-  position: relative;
 }
 header .main-menu address::before {
   content: "";
@@ -171,14 +275,8 @@ header .main-menu address::before {
 header .main-menu #btn-menu {
   display: none;
 }
-header .main-menu .btn-menu {
-  cursor: pointer;
-  display: block;
-  transform: translateY(0.5em);
-  width: 2em;
-  height: 2em;
-  background: url("../../img/menu.png");
-  background-size: cover;
+header .main-menu .logo-small::before {
+  margin-top: -19px;
 }
 @media only screen and (max-width: 769px) {
   header .main-menu .main-nav {
@@ -210,98 +308,6 @@ header .main-menu .btn-menu {
   header .main-menu .main-nav #btn-menu:checked + ul li:last-child {
     border: none;
   }
-  header .main-menu .logo-small {
-    text-decoration: none;
-    color: #CAD2C5;
-    border: 1px solid #CAD2C5;
-    position: relative;
-    display: inline-block;
-    font-size: inherit;
-  }
-  header .main-menu .logo-small h1 {
-    font-weight: normal;
-  }
-  header .main-menu .logo-small::before {
-    content: "";
-    background: url("../../img/light-bulb.png");
-    display: block;
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    margin-top: -19px;
-  }
-  header .main-menu .logo-small:hover::before {
-    background: url("../../img/yellow-bulb.png");
-  }
-  header .main-menu .logo-small::before {
-    right: 5px;
-    background: url("../../img/light-bulb.png");
-  }
-}
-header .intro {
-  color: #CAD2C5;
-  padding-top: 35px;
-  padding-bottom: 35px;
-}
-.logo-big {
-  display: inline-block;
-  text-decoration: none;
-  color: #CAD2C5;
-  border: 1px solid #CAD2C5;
-  position: relative;
-  width: 150px;
-  padding-left: 10px;
-}
-.logo-big h1 {
-  font-weight: normal;
-}
-.logo-big::before {
-  content: "";
-  background: url("../../img/light-bulb.png");
-  display: block;
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  margin-top: -19px;
-}
-.logo-big:hover::before {
-  background: url("../../img/yellow-bulb.png");
-}
-.logo-small {
-  display: inline-block;
-  text-decoration: none;
-  color: #11151C;
-  border: 1px solid #11151C;
-  position: relative;
-  font-size: 2em;
-  width: 65px;
-  padding-left: 5px;
-}
-.logo-small h1 {
-  font-weight: normal;
-}
-.logo-small::before {
-  content: "";
-  background: url("../../img/light-bulb.png");
-  display: block;
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  margin-top: -19px;
-}
-.logo-small:hover::before {
-  background: url("../../img/yellow-bulb.png");
-}
-.logo-small::before {
-  right: 5px;
-  margin-top: -17px;
-  background: url("../../img/dark-bulb.png");
 }
 .footer-push {
   min-height: 100%;
@@ -369,6 +375,10 @@ footer .footer-nav ul {
   text-decoration: none;
   display: block;
 }
+.courses .courses-container .course a:hover,
+.courses .courses-container .course a.active {
+  color: #214581;
+}
 .courses .courses-container .course .reference {
   float: left;
   padding-top: 22px;
@@ -420,8 +430,12 @@ footer .footer-nav ul {
     display: inline;
   }
   .pagination-big ul li a {
-    text-decoration: none;
     color: #3066BE;
+    text-decoration: none;
+  }
+  .pagination-big ul li a:hover,
+  .pagination-big ul li a.active {
+    color: #214581;
   }
 }
 @media only screen and (max-width: 769px) {
