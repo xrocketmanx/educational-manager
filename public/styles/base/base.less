@@ -98,7 +98,7 @@ header {
 
 		.btn-menu {
 			cursor: pointer;
-			display: none;
+			display: block;
 			transform: translateY(0.5em);
 			width: 2em;
 			height: 2em;
@@ -106,20 +106,11 @@ header {
 			background-size: cover;
 		}
 
-		.logo-small {
-			display: none;
-		}
-
 		@media only screen and (max-width: @width-media) {
-			.main-nav ul, address {
-				display: none;
-			}
 			.main-nav {
 				float: right; 
 
-				.btn-menu {
-					display: block;
-				}
+				ul { display: none; }
 
 				#btn-menu:checked + ul {
 					background: fade(@dark-grey, 90%);
@@ -145,9 +136,6 @@ header {
 						border: none;
 					}
 				}
-			}
-			.logo-big {
-				display: none;
 			}
 			.logo-small {
 				.logo(@white);
@@ -237,10 +225,6 @@ footer {
 	background: fade(@dark-grey, 90%);
 	padding-top: 12.5px;
 	padding-bottom: 12.5px;
-
-	@media only screen and (max-width: @width-media) {
-		display: none;
-	}
 
 	.author {
 		float: right;
