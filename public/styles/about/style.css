@@ -361,10 +361,13 @@ header {
   color: #CAD2C5;
 }
 .about .title {
-  padding: 15px 0;
+  padding-top: 15px;
 }
 .about h3 {
   padding: 15px 0 5px 0;
+}
+.about h3:first-child {
+  padding-top: 0;
 }
 .about a {
   color: #638fd8;
