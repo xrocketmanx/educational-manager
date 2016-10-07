@@ -375,10 +375,6 @@ footer .footer-nav ul {
   text-decoration: none;
   display: block;
 }
-.courses .courses-container .course a:hover,
-.courses .courses-container .course a.active {
-  color: #214581;
-}
 .courses .courses-container .course .reference {
   float: left;
   padding-top: 22px;
@@ -401,53 +397,33 @@ footer .footer-nav ul {
     padding: 0;
   }
 }
-.pagination {
+.pagination,
+.pagination-big,
+.pagination-small {
   display: block;
   text-align: center;
   margin-top: 30px;
   margin-bottom: -20px;
   color: #11151C;
 }
-.pagination-big {
-  display: none;
+.pagination-big ul {
+  display: inline;
+  list-style-type: none;
+}
+.pagination-big ul li {
+  display: inline;
+}
+.pagination-big ul li a {
+  color: #3066BE;
+  text-decoration: none;
+}
+.pagination-big ul li a:hover,
+.pagination-big ul li a.active {
+  color: #214581;
 }
 .pagination-small {
-  display: none;
+  font-size: 1.5em;
 }
-@media only screen and (min-width: 769px) {
-  .pagination-big {
-    display: block;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: -20px;
-    color: #11151C;
-  }
-  .pagination-big ul {
-    display: inline;
-    list-style-type: none;
-  }
-  .pagination-big ul li {
-    display: inline;
-  }
-  .pagination-big ul li a {
-    color: #3066BE;
-    text-decoration: none;
-  }
-  .pagination-big ul li a:hover,
-  .pagination-big ul li a.active {
-    color: #214581;
-  }
-}
-@media only screen and (max-width: 769px) {
-  .pagination-small {
-    display: block;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: -20px;
-    color: #11151C;
-    font-size: 1.5em;
-  }
-  .pagination-small a {
-    color: #3066BE;
-  }
+.pagination-small a {
+  color: #3066BE;
 }

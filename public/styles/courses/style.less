@@ -3,7 +3,7 @@
 .courses {
 	.title {
 		color: @dark-grey;
-		padding: 15px 0;
+		padding: @title-padding 0;
 	}
 
 	#sort-options {
@@ -21,9 +21,9 @@
 
 	.courses-container {
 		.course {
-			margin-top: 25px;
-			padding: 15px;
-			border-right: 15px solid transparent;
+			margin-top: @title-padding + 10;
+			padding: @title-padding;
+			border-right: @title-padding solid transparent;
 
 			img {
 				width: 100%;
@@ -35,13 +35,13 @@
 				color: @dark-grey;
 			}
 
-			@like-size: 24px;
-
 			a {
-				.anchor(@blue);
+				color: @blue;
 				text-decoration: none;
 				display: block;
 			}
+
+			@like-size: 24px;
 
 			.reference {
 				float: left;
@@ -73,41 +73,31 @@
 .pagination {
 	display: block;
 	text-align: center;
-	margin-top: 30px;
+	margin-top: @title-padding * 2;
 	margin-bottom: -20px;
 	color: @dark-grey;
 }
 
-.pagination-big { display: none; }
-.pagination-small { display: none; }
+.pagination-big:extend(.pagination) {
+	ul {
+		display: inline;
+		list-style-type: none;
 
-@media only screen and (min-width: @width-media) {
-	.pagination-big {
-		.pagination;
-
-		ul {
+		li {
 			display: inline;
-			list-style-type: none;
 
-			li {
-				display: inline;
-
-				a {
-					.anchor(@blue);
-					text-decoration: none;
-				}
+			a {
+				.anchor(@blue);
+				text-decoration: none;
 			}
 		}
 	}
 }
 
-@media only screen and (max-width: @width-media) {
-	.pagination-small {
-		.pagination;
-		font-size: 	1.5em;
-		a {
-			color: @blue;
-		}	
-	}
+.pagination-small:extend(.pagination) {
+	font-size: 	1.5em;
+	a {
+		color: @blue;
+	}	
 }
 

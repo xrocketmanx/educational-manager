@@ -364,4 +364,7 @@ footer .footer-nav ul {
     padding: 0;
     margin-bottom: 30px;
   }
+  .top-courses .course:last-child {
+    margin-bottom: 0;
+  }
 }

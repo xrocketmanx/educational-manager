@@ -357,12 +357,13 @@ header {
   position: absolute;
   z-index: -1;
 }
-.about .title {
+.about {
   color: #CAD2C5;
+}
+.about .title {
   padding: 15px 0;
 }
 .about h3 {
-  color: #CAD2C5;
   padding: 15px 0 5px 0;
 }
 .about a {
@@ -372,7 +373,4 @@ header {
 .about a:hover,
 .about a.active {
   color: #3066be;
-}
-.about p {
-  color: #CAD2C5;
 }
