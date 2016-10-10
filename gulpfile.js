@@ -1,7 +1,10 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync');
-var less        = require('gulp-less');
-var concat      = require('gulp-concat');
+var gulp        = require('gulp'),
+	browserSync = require('browser-sync'),
+	less        = require('gulp-less'),
+	concat      = require('gulp-concat'),
+	del         = require('del'),
+	uglify      = require('gulp-uglifyjs'),
+	cleancss    = require('gulp-clean-css');
 
 var paths = (function() {
 	var base = "public/";
@@ -10,7 +13,9 @@ var paths = (function() {
 			less: "less",
 			css: "css"
 		},
-		scripts: 'scripts'
+		scripts: 'scripts',
+		build: 'build',
+		img: 'img'
 	}
 
 	function getDirPath(tree, dir) {
@@ -53,6 +58,23 @@ gulp.task('browserSync', function() {
 		},
 		notify: false
 	});
+});
+
+gulp.task('clean', function() {
+	return del.sync(paths.get('build'));
+});
+
+gulp.task('build', ['clean', 'less', 'js'], function() {
+	var js = gulp.src(paths.get('scripts') + 'script.js')
+		.pipe(uglify())
+		.pipe(gulp.dest(paths.get('build') + 'scripts/'));
+	var css = gulp.src(paths.get('css') + '*.css')
+		.pipe(cleancss())
+		.pipe(gulp.dest(paths.get('build') + 'styles/css/'));
+	var img = gulp.src(paths.get('img') + '**/*')
+		.pipe(gulp.dest(paths.get('build') + 'img/'));
+	var html = gulp.src(paths.get('./') + '**/*.html')
+		.pipe(gulp.dest(paths.get('build')));
 });
 
 gulp.task('watch', ['browserSync', 'less', 'js'], function() {
