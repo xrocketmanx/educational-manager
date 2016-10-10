@@ -1,4 +1,4 @@
-@import "../base/base";
+@import "base/base";
 
 .courses {
 	.title {
@@ -23,7 +23,6 @@
 		.course {
 			margin-top: @title-padding + 10;
 			padding: @title-padding;
-			border-right: @title-padding solid transparent;
 
 			img {
 				width: 100%;
@@ -63,7 +62,6 @@
 			}
 
 			@media only screen and (max-width: @width-media) {
-				border: none;
 				padding: 0;
 			}
 		}

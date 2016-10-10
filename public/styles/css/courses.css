@@ -360,7 +360,6 @@ footer .footer-nav ul {
 .courses .courses-container .course {
   margin-top: 25px;
   padding: 15px;
-  border-right: 15px solid transparent;
 }
 .courses .courses-container .course img {
   width: 100%;
@@ -393,7 +392,6 @@ footer .footer-nav ul {
 }
 @media only screen and (max-width: 769px) {
   .courses .courses-container .course {
-    border: none;
     padding: 0;
   }
 }
