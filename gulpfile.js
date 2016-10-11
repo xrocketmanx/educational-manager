@@ -4,7 +4,8 @@ var gulp        = require('gulp'),
 	concat      = require('gulp-concat'),
 	del         = require('del'),
 	uglify      = require('gulp-uglifyjs'),
-	cleancss    = require('gulp-clean-css');
+	cleancss    = require('gulp-clean-css'),
+	ejs         = require('gulp-ejs');
 
 var paths = (function() {
 	var base = "public/";
@@ -15,7 +16,8 @@ var paths = (function() {
 		},
 		scripts: 'scripts',
 		build: 'build',
-		img: 'img'
+		img: 'img',
+		templates: 'templates'
 	}
 
 	function getDirPath(tree, dir) {
@@ -39,16 +41,23 @@ var paths = (function() {
 
 gulp.task('less', function() {
 	return gulp.src(paths.get('less') + '*.less')
-	.pipe(less())
-	.pipe(gulp.dest(paths.get('css')))
-	.pipe(browserSync.reload({stream: true}));
+		.pipe(less())
+		.pipe(gulp.dest(paths.get('css')))
+		.pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('js', function() {
 	return gulp.src([paths.get('scripts') + '**/*.js', '!' + paths.get('scripts') + 'script.js'])
-	.pipe(concat('script.js'))
-	.pipe(gulp.dest(paths.get('scripts')))
-	.pipe(browserSync.reload({stream: true}));
+		.pipe(concat('script.js'))
+		.pipe(gulp.dest(paths.get('scripts')))
+		.pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task('templates', function() {
+	return gulp.src(paths.get('templates') + '*.ejs')
+		.pipe(ejs({}, { ext: '.html' }))
+		.pipe(gulp.dest(paths.get('./')))
+		.pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('browserSync', function() {
@@ -64,7 +73,7 @@ gulp.task('clean', function() {
 	return del.sync(paths.get('build'));
 });
 
-gulp.task('build', ['clean', 'less', 'js'], function() {
+gulp.task('build', ['clean', 'less', 'js', 'templates'], function() {
 	var js = gulp.src(paths.get('scripts') + 'script.js')
 		.pipe(uglify())
 		.pipe(gulp.dest(paths.get('build') + 'scripts/'));
@@ -77,8 +86,8 @@ gulp.task('build', ['clean', 'less', 'js'], function() {
 		.pipe(gulp.dest(paths.get('build')));
 });
 
-gulp.task('watch', ['browserSync', 'less', 'js'], function() {
+gulp.task('watch', ['browserSync', 'less', 'js', 'templates'], function() {
 	gulp.watch(paths.get('less') + '**/*.less', ['less']);
 	gulp.watch([paths.get('scripts') + '**/*.js', '!' + paths.get('scripts') + 'script.js'], ['js']);
-	gulp.watch(paths.get('./') + '*.html', browserSync.reload);
+	gulp.watch(paths.get('templates') + '**/*.ejs', ['templates']);
 });
