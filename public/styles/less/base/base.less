@@ -11,6 +11,15 @@
 @img-path: "../../img/";
 
 @title-padding: 15px;
+@nav-top-padding: 17px;
+
+/*
+**==========================
+**
+**BASIC STYLES
+**
+**==========================
+*/
 
 * {
 	font-family: 'Open Sans', sans-serif;
@@ -20,238 +29,17 @@ html, body {
 	height: 100%;
 }
 
-/*
-**==========================
-**
-**STANDART ELEMENTS
-**
-**==========================
-*/
-
-.container {
-	padding-left: 5%;
-	padding-right: 5%;
-
-	@media only screen and (max-width: @width-media) {
-		padding-left: 2%;
-		padding-right: 2%;
-	}
-}
-
-.anchor(@color) {
-	color: @color;
-
-	&:hover, &.active {
-		color: darken(@color, 15%);
-	}
-}
-
-.phone {
-	color: @white;
-	position: relative;
-
-	&::before {
-		content: "";
-		background: url("@{img-path}technology.png");
-		background-size: cover;
-		display: block;
-		width: 16px;
-		height: 16px;
-		position: absolute;
-		left: -25px;
-		top: 50%;
-		margin-top: -3px;
-	}
-}
-
-.btn-menu {
-	cursor: pointer;
-	display: block;
-	transform: translateY(0.5em);
-	width: 2em;
-	height: 2em;
-	background: url("@{img-path}menu.png");
-	background-size: cover;
-}
-
-.logo(@color, @img) {
-	font-size: 32px;
-	display: inline-block;
-	text-decoration: none;
-	color: @color;
-	border: 1px solid @color;
-	position: relative;
-
-	h1 {
-		font-weight: normal;
-		font-size: inherit;
-	}
-
-	&::before {
-		content: "";
-		background: url("@{img-path}@{img}.png");
-		display: block;
-		width: 32px;
-		height: 32px;
-		position: absolute;
-		top: 50%;
-	}
-
-	&:hover::before {
-		background: url("@{img-path}yellow-bulb.png");
-	}
-}
-
-.logo-dark { .logo(@dark-grey, 'dark-bulb'); }
-.logo-light { .logo(@white, 'light-bulb'); }
-
-.logo-big {
-	width: 150px;
-	padding-left: 10px;
-
-	&::before {
-		right: 10px;
-		margin-top: -19px;
-	}
-}
-
-.logo-small {
-	width: 65px;
-	padding-left: 5px;
-
-	&::before {
-		right: 5px;
-		margin-top: -17px;
-	}
-}
-
-/*
-**==========================
-**
-**CUSTOM STYLES
-**
-**==========================
-*/
-@nav-top-padding: 17px;
-
-.nav-list li {
-	display: inline-block;
-	margin: 0 25px;
-	a {
-		.anchor(@white);
-	}
-
-	@media only screen and (max-width: 900px) {
-		margin: 0 15px;
-	}
-}
-
 address {
 	font-style: normal;
 }
 
-header {
-	background: url("@{img-path}mac.jpg");
-	background-position: 340px 1px;
-
-	.intro {
-		color: @white;
-		padding-top: 35px;
-		padding-bottom: 35px;
-	}
-
-	.main-menu {
-		position: relative;
-		padding-top: 20px;
-		padding-bottom: 20px;
-		background: fade(@dark-grey, 60%);
-		
-		.logo-wrap {
-			min-width: 150px;
-		}
-
-		.nav-list {
-			padding-top: @nav-top-padding;
-		}
-
-		address {
-			.phone;
-			float: right;
-			padding-top: @nav-top-padding;
-		}
-
-		#btn-menu {
-			display: none;
-		}
-
-		.logo-small::before {
-			margin-top: -19px;
-		}
-
-		@media only screen and (max-width: @width-media) {
-			.main-nav {
-				float: right; 
-
-				ul { display: none; }
-
-				#btn-menu:checked + ul {
-					background: fade(@dark-grey, 90%);
-					display: block;
-					position: absolute;
-					right: 0;
-					top: 64px;
-					text-align: center;
-					padding-top: 0;
-					li {
-						margin: 0;
-						display: block;
-
-						a { 
-							font-size: 1.5em;
-							display: block;
-							text-decoration: none; 
-							padding: .3em .7em;
-							border-bottom: 1px solid @white;
-						}
-					}
-					li:last-child {
-						border: none;
-					}
-				}
-			}
-		}
-	}
-}
-
-@footer-height: 70px;
-.footer-push {
-	min-height: 100%;
-	padding-bottom: @footer-height + 5;
-	/*min-height: 100%;
-	margin-bottom: -@footer-height;
-
-	&::after {
-		height: @footer-height;
-	}*/
-
-	@media only screen and (max-width: @width-media) {
-		padding-bottom: 0;
-	}
-}
-
-footer {
-	height: @footer-height;
-	background: fade(@dark-grey, 90%);
-	padding-top: 12.5px;
-	padding-bottom: 12.5px;
-
-	.author {
-		float: right;
-		color: @white;
-		padding-top: @nav-top-padding;
-	}
-
-	.footer-nav ul {
-		padding-top: @nav-top-padding;
-	}
-}
+/*
+**==========================
+**
+**IMPORTS
+**
+**==========================
+*/
+@import "components";
+@import "modules/header";
+@import "modules/footer";

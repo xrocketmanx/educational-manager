@@ -12,6 +12,16 @@
   display: block;
   clear: both;
 }
+.container {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+@media only screen and (max-width: 769px) {
+  .container {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
 @media only screen and (min-width: 770px) {
   .mobile {
     display: none !important;
@@ -94,6 +104,13 @@
     width: 8.33333333%;
   }
 }
+/*
+**==========================
+**
+**BASIC STYLES
+**
+**==========================
+*/
 * {
   font-family: 'Open Sans', sans-serif;
 }
@@ -101,21 +118,30 @@ html,
 body {
   height: 100%;
 }
+address {
+  font-style: normal;
+}
 /*
 **==========================
 **
-**STANDART ELEMENTS
+**IMPORTS
 **
 **==========================
 */
-.container {
-  padding-left: 5%;
-  padding-right: 5%;
+.nav-list li {
+  display: inline-block;
+  margin: 0 25px;
 }
-@media only screen and (max-width: 769px) {
-  .container {
-    padding-left: 2%;
-    padding-right: 2%;
+.nav-list li a {
+  color: #CAD2C5;
+}
+.nav-list li a:hover,
+.nav-list li a.active {
+  color: #a3b19a;
+}
+@media only screen and (max-width: 900px) {
+  .nav-list li {
+    margin: 0 15px;
   }
 }
 .phone {
@@ -207,32 +233,6 @@ body {
   right: 5px;
   margin-top: -17px;
 }
-/*
-**==========================
-**
-**CUSTOM STYLES
-**
-**==========================
-*/
-.nav-list li {
-  display: inline-block;
-  margin: 0 25px;
-}
-.nav-list li a {
-  color: #CAD2C5;
-}
-.nav-list li a:hover,
-.nav-list li a.active {
-  color: #a3b19a;
-}
-@media only screen and (max-width: 900px) {
-  .nav-list li {
-    margin: 0 15px;
-  }
-}
-address {
-  font-style: normal;
-}
 header {
   background: url("../../img/mac.jpg");
   background-position: 340px 1px;
@@ -255,22 +255,8 @@ header .main-menu .nav-list {
   padding-top: 17px;
 }
 header .main-menu address {
-  color: #CAD2C5;
-  position: relative;
   float: right;
   padding-top: 17px;
-}
-header .main-menu address::before {
-  content: "";
-  background: url("../../img/technology.png");
-  background-size: cover;
-  display: block;
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  left: -25px;
-  top: 50%;
-  margin-top: -3px;
 }
 header .main-menu #btn-menu {
   display: none;
