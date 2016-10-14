@@ -39,11 +39,9 @@ header {
 			.main-nav {
 				float: right; 
 
-				ul { display: none; }
-
-				#btn-menu:checked + ul {
+				ul { 
+					display: none; 
 					background: fade(@dark-grey, 90%);
-					display: block;
 					position: absolute;
 					right: 0;
 					top: 64px;
@@ -64,6 +62,10 @@ header {
 					li:last-child {
 						border: none;
 					}
+				}
+
+				#btn-menu:checked + ul {
+					display: block;
 				}
 			}
 		}

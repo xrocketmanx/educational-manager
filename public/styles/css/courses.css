@@ -270,29 +270,29 @@ header .main-menu .logo-small::before {
   }
   header .main-menu .main-nav ul {
     display: none;
-  }
-  header .main-menu .main-nav #btn-menu:checked + ul {
     background: rgba(17, 21, 28, 0.9);
-    display: block;
     position: absolute;
     right: 0;
     top: 64px;
     text-align: center;
     padding-top: 0;
   }
-  header .main-menu .main-nav #btn-menu:checked + ul li {
+  header .main-menu .main-nav ul li {
     margin: 0;
     display: block;
   }
-  header .main-menu .main-nav #btn-menu:checked + ul li a {
+  header .main-menu .main-nav ul li a {
     font-size: 1.5em;
     display: block;
     text-decoration: none;
     padding: .3em .7em;
     border-bottom: 1px solid #CAD2C5;
   }
-  header .main-menu .main-nav #btn-menu:checked + ul li:last-child {
+  header .main-menu .main-nav ul li:last-child {
     border: none;
+  }
+  header .main-menu .main-nav #btn-menu:checked + ul {
+    display: block;
   }
 }
 .footer-push {
