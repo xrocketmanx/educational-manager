@@ -23,9 +23,6 @@
   }
 }
 @media only screen and (min-width: 770px) {
-  .mobile {
-    display: none !important;
-  }
   .col-12 {
     width: 100%;
   }
@@ -64,9 +61,6 @@
   }
 }
 @media only screen and (max-width: 769px) {
-  .desktop {
-    display: none !important;
-  }
   .col-s-12 {
     width: 100%;
   }
@@ -104,6 +98,16 @@
     width: 8.33333333%;
   }
 }
+@media only screen and (min-width: 770px) {
+  .mobile {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 769px) {
+  .desktop {
+    display: none !important;
+  }
+}
 /*
 **==========================
 **
@@ -128,20 +132,53 @@ address {
 **
 **==========================
 */
+@media only screen and (min-width: 769px) {
+  .nav-transition a {
+    position: relative;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-transition a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background-color: #b0bca8;
+    transition: width 0.3s ease-out;
+  }
+  .nav-transition li:hover {
+    cursor: pointer;
+  }
+  .nav-transition li:hover a {
+    color: #b0bca8;
+  }
+  .nav-transition li:hover a:after {
+    width: 100% !important;
+  }
+  .nav-transition .active:after {
+    width: 100%;
+  }
+  .nav-transition:hover .active:after {
+    width: 0;
+  }
+}
 .nav-list li {
-  display: inline-block;
-  margin: 0 25px;
+  display: block;
+  float: left;
+  padding: 0 30px;
 }
 .nav-list li a {
   color: #CAD2C5;
 }
 .nav-list li a:hover,
 .nav-list li a.active {
-  color: #a3b19a;
+  color: #b0bca8;
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 930px) {
   .nav-list li {
-    margin: 0 15px;
+    padding: 0 15px;
   }
 }
 .phone {
@@ -268,7 +305,7 @@ header .main-menu .logo-small::before {
   header .main-menu .main-nav {
     float: right;
   }
-  header .main-menu .main-nav ul {
+  header .main-menu .main-nav .nav-list {
     display: none;
     background: rgba(17, 21, 28, 0.9);
     position: absolute;
@@ -277,18 +314,22 @@ header .main-menu .logo-small::before {
     text-align: center;
     padding-top: 0;
   }
-  header .main-menu .main-nav ul li {
-    margin: 0;
+  header .main-menu .main-nav .nav-list li {
+    float: none;
+    padding: 0;
     display: block;
   }
-  header .main-menu .main-nav ul li a {
+  header .main-menu .main-nav .nav-list li a {
     font-size: 1.5em;
     display: block;
     text-decoration: none;
     padding: .3em .7em;
     border-bottom: 1px solid #CAD2C5;
   }
-  header .main-menu .main-nav ul li:last-child {
+  header .main-menu .main-nav .nav-list li a.active {
+    background: #11151C;
+  }
+  header .main-menu .main-nav .nav-list li:last-child a {
     border: none;
   }
   header .main-menu .main-nav #btn-menu:checked + ul {
@@ -319,7 +360,7 @@ footer {
 footer .author {
   float: right;
   color: #CAD2C5;
-  padding-top: 17px;
+  padding-top: 20px;
 }
 footer .footer-nav ul {
   padding-top: 17px;
@@ -343,7 +384,7 @@ footer .footer-nav ul {
 }
 .top-courses .course a:hover,
 .top-courses .course a.active {
-  color: #214581;
+  color: #265095;
 }
 @media only screen and (max-width: 769px) {
   .top-courses .course {

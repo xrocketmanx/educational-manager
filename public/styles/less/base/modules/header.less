@@ -18,7 +18,7 @@ header {
 			min-width: 150px;
 		}
 
-		.nav-list {
+		.nav-list {		
 			padding-top: @nav-top-padding;
 		}
 
@@ -39,7 +39,7 @@ header {
 			.main-nav {
 				float: right; 
 
-				ul { 
+				.nav-list { 
 					display: none; 
 					background: fade(@dark-grey, 90%);
 					position: absolute;
@@ -48,7 +48,8 @@ header {
 					text-align: center;
 					padding-top: 0;
 					li {
-						margin: 0;
+						float: none;
+						padding: 0;
 						display: block;
 
 						a { 
@@ -57,9 +58,13 @@ header {
 							text-decoration: none; 
 							padding: .3em .7em;
 							border-bottom: 1px solid @white;
+
+							&.active {
+								background: @dark-grey;	
+							}
 						}
 					}
-					li:last-child {
+					li:last-child a {
 						border: none;
 					}
 				}

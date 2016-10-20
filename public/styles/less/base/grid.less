@@ -27,13 +27,23 @@
 }
 
 @media only screen and (min-width: 770px) {
-	.mobile { display: none !important; }
 	.create-grid(12);
 }
 
 @media only screen and (max-width: @width-media) {
-	.desktop { display: none !important; }
 	.create-grid(12, small);	
+}
+
+.mobile {
+	@media only screen and (min-width: 770px) {
+		display: none !important;	
+	}
+}
+
+.desktop {
+	@media only screen and (max-width: @width-media) {
+		display: none !important;	
+	}
 }
 
 .create-grid (@n, @i: @n) when (@i > 0) {

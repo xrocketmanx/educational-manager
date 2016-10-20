@@ -2,19 +2,59 @@
 	color: @color;
 
 	&:hover, &.active {
-		color: darken(@color, 15%);
+		color: darken(@color, 10%);
+	}
+}
+
+@media only screen and (min-width: @width-media) {
+	.nav-transition {
+		a {
+			position: relative;
+			text-decoration: none;
+			transition: color .2s;
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 0;
+				height: 1px;
+				width: 	0;
+				background-color: darken(@white, 10%);
+				transition: width .3s ease-out;	
+			}
+		}
+
+		li:hover {
+			cursor: pointer;
+			a {
+				color: darken(@white, 10%)
+			}
+			a:after { 
+				width: 100% !important; 
+			}
+		}
+
+		.active:after {
+			width: 100%;
+		}
+
+		&:hover .active:after { 
+			width: 0;
+		}
 	}
 }
 
 .nav-list li {
-	display: inline-block;
-	margin: 0 25px;
+	display: block;
+	float: left;
+	padding: 0 30px;
+
 	a {
 		.anchor(@white);
 	}
 
-	@media only screen and (max-width: 900px) {
-		margin: 0 15px;
+	@media only screen and (max-width: 930px) {
+		padding: 0 15px;
 	}
 }
 
