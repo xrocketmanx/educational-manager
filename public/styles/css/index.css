@@ -474,7 +474,7 @@ main section {
 }
 @media only screen and (max-width: 769px) {
   .top-courses .course {
-    padding: 0;
+    padding: 0 !important;
     margin-bottom: 30px;
   }
   .top-courses .course:last-child {
@@ -491,6 +491,7 @@ main section {
 }
 .we-offer .carousel .offer img {
   height: 300px;
+  max-width: 100%;
   float: left;
   margin: 0 15px 15px 0;
 }
@@ -501,7 +502,10 @@ main section {
   .we-offer .carousel {
     height: auto;
   }
-  .we-offer .offer p {
-    margin-top: 4em;
+  .we-offer img {
+    float: none !important;
+  }
+  .we-offer .offer {
+    text-align: center;
   }
 }
