@@ -14,7 +14,10 @@ var paths = (function() {
 			less: "less",
 			css: "css"
 		},
-		scripts: 'scripts',
+		scripts: {
+			js: "js",
+			libs: "libs"
+		},
 		build: 'build',
 		img: 'img',
 		templates: 'templates'
@@ -47,9 +50,9 @@ gulp.task('less', function() {
 });
 
 gulp.task('js', function() {
-	return gulp.src([paths.get('scripts') + '**/*.js', '!' + paths.get('scripts') + 'script.js'])
+	return gulp.src([paths.get('js') + '**/*.js', '!' + paths.get('js') + 'script.js'])
 		.pipe(concat('script.js'))
-		.pipe(gulp.dest(paths.get('scripts')))
+		.pipe(gulp.dest(paths.get('js')))
 		.pipe(browserSync.reload({stream: true}));
 });
 
@@ -74,9 +77,9 @@ gulp.task('clean', function() {
 });
 
 gulp.task('build', ['clean', 'less', 'js', 'templates'], function() {
-	var js = gulp.src(paths.get('scripts') + 'script.js')
+	var js = gulp.src(paths.get('js') + 'script.js')
 		.pipe(uglify())
-		.pipe(gulp.dest(paths.get('build') + 'scripts/'));
+		.pipe(gulp.dest(paths.get('build') + 'scripts/js/'));
 	var css = gulp.src(paths.get('css') + '*.css')
 		.pipe(cleancss())
 		.pipe(gulp.dest(paths.get('build') + 'styles/css/'));
@@ -88,6 +91,6 @@ gulp.task('build', ['clean', 'less', 'js', 'templates'], function() {
 
 gulp.task('watch', ['browserSync', 'less', 'js', 'templates'], function() {
 	gulp.watch(paths.get('less') + '**/*.less', ['less']);
-	gulp.watch([paths.get('scripts') + '**/*.js', '!' + paths.get('scripts') + 'script.js'], ['js']);
+	gulp.watch([paths.get('js') + '**/*.js', '!' + paths.get('js') + 'script.js'], ['js']);
 	gulp.watch(paths.get('templates') + '**/*.ejs', ['templates']);
 });

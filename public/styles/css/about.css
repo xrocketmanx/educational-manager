@@ -368,6 +368,17 @@ footer .footer-nav ul {
 header {
   background: none;
 }
+main {
+  color: #CAD2C5;
+}
+main a {
+  color: #638fd8;
+  text-decoration: none;
+}
+main a:hover,
+main a.active {
+  color: #3a72cd;
+}
 .footer-push {
   position: relative;
   background: rgba(17, 21, 28, 0.6);
@@ -384,10 +395,7 @@ header {
   position: absolute;
   z-index: -1;
 }
-.about {
-  color: #CAD2C5;
-}
-.about .title {
+.title {
   padding-top: 15px;
 }
 .about h3 {
@@ -395,12 +403,4 @@ header {
 }
 .about h3:first-child {
   padding-top: 0;
-}
-.about a {
-  color: #638fd8;
-  text-decoration: none;
-}
-.about a:hover,
-.about a.active {
-  color: #3a72cd;
 }

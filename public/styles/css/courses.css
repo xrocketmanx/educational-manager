@@ -365,11 +365,19 @@ footer .author {
 footer .footer-nav ul {
   padding-top: 17px;
 }
-.courses .title {
+main {
   color: #11151C;
-  padding: 15px 0;
 }
-.courses #sort-options {
+main a {
+  color: #3066BE;
+  text-decoration: none;
+}
+main a:hover,
+main a.active {
+  color: #265095;
+}
+.title {
+  padding: 15px 0;
   color: #11151C;
 }
 .courses #sort-options select {
@@ -393,12 +401,7 @@ footer .footer-nav ul {
   border: 1px solid #11151C;
   margin-bottom: 10px;
 }
-.courses .courses-container .course .description {
-  color: #11151C;
-}
 .courses .courses-container .course a {
-  color: #3066BE;
-  text-decoration: none;
   display: block;
 }
 .courses .courses-container .course .reference {
@@ -429,7 +432,6 @@ footer .footer-nav ul {
   text-align: center;
   margin-top: 30px;
   margin-bottom: -20px;
-  color: #11151C;
 }
 .pagination-big ul {
   display: inline;
@@ -438,17 +440,9 @@ footer .footer-nav ul {
 .pagination-big ul li {
   display: inline;
 }
-.pagination-big ul li a {
-  color: #3066BE;
-  text-decoration: none;
-}
-.pagination-big ul li a:hover,
-.pagination-big ul li a.active {
-  color: #265095;
-}
 .pagination-small {
   font-size: 1.5em;
 }
 .pagination-small a {
-  color: #3066BE;
+  text-decoration: underline;
 }

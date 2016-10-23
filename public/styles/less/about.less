@@ -4,6 +4,14 @@ header {
 	background: none;
 }
 
+main {
+	color: @white;
+	a {
+		.anchor(lighten(@blue, 15%));
+		text-decoration: none;
+	}
+}
+
 .footer-push {
 	position: relative;
 	background: fade(@dark-grey, 60%);
@@ -22,22 +30,15 @@ header {
 	z-index: -1;
 }
 
+.title {
+	padding-top: @title-padding;
+}
+
 .about {
-	color: @white;
-
-	.title {
-		padding-top: @title-padding;
-	}
-
 	h3 {
 		padding: @title-padding 0 @title-padding/3 0;
 		&:first-child {
 			padding-top: 0;
 		}
-	}
-
-	a {
-		.anchor(lighten(@blue, 15%));
-		text-decoration: none;
 	}
 }

@@ -365,26 +365,112 @@ footer .author {
 footer .footer-nav ul {
   padding-top: 17px;
 }
-.top-courses .title {
+@media only screen and (min-width: 769px) {
+  .carousel {
+    overflow: hidden;
+    position: relative;
+  }
+  .carousel .box {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: left 0.7s ease-out, opacity 0.7s ease-out;
+  }
+  .carousel .right {
+    left: 100%;
+  }
+  .carousel .left {
+    z-index: 1;
+    left: -100%;
+    opacity: 0;
+  }
+  .carousel .active {
+    z-index: 2;
+    left: 0;
+    opacity: 1;
+  }
+  .carousel .controls {
+    z-index: 3;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(17, 21, 28, 0.6);
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    margin-top: -15px;
+    cursor: pointer;
+  }
+  .carousel .controls::before,
+  .carousel .controls::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+  }
+  .carousel .controls:hover {
+    background-color: rgba(17, 21, 28, 0.9);
+  }
+  .carousel .controls:hover:before,
+  .carousel .controls:hover:after {
+    border-right-color: rgba(202, 210, 197, 0.7);
+    border-left-color: rgba(202, 210, 197, 0.7);
+  }
+  .carousel .control-prev {
+    left: 10px;
+  }
+  .carousel .control-next {
+    right: 10px;
+  }
+  .carousel .control-prev::before {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 10px solid rgba(17, 21, 28, 0.7);
+    left: 50%;
+    margin-left: -7px;
+  }
+  .carousel .control-next::after {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 10px solid rgba(17, 21, 28, 0.7);
+    right: 50%;
+    margin-right: -7px;
+  }
+}
+main {
+  color: #11151C;
+}
+main a {
+  color: #3066BE;
+  text-decoration: none;
+}
+main a:hover,
+main a.active {
+  color: #265095;
+}
+main section {
+  margin-top: 15px;
+}
+.title {
+  color: #11151C;
   text-align: center;
   padding: 30px 0;
-  color: #11151C;
 }
 .top-courses .course {
   padding: 0 15px;
+}
+.top-courses .course:first-of-type {
+  padding-left: 0;
+  padding-right: 30px;
+}
+.top-courses .course:last-of-type {
+  padding-right: 0;
+  padding-left: 30px;
 }
 .top-courses .course img {
   width: 100%;
   border: 1px solid #11151C;
   margin-bottom: 20px;
-}
-.top-courses .course a {
-  color: #3066BE;
-  text-decoration: none;
-}
-.top-courses .course a:hover,
-.top-courses .course a.active {
-  color: #265095;
 }
 @media only screen and (max-width: 769px) {
   .top-courses .course {
@@ -393,5 +479,29 @@ footer .footer-nav ul {
   }
   .top-courses .course:last-child {
     margin-bottom: 0;
+  }
+}
+.we-offer .carousel {
+  height: 500px;
+  border: 1px solid #CAD2C5;
+  background: #fcfcfc;
+}
+.we-offer .carousel .offer {
+  padding: 100px 50px;
+}
+.we-offer .carousel .offer img {
+  height: 300px;
+  float: left;
+  margin: 0 15px 15px 0;
+}
+.we-offer .carousel .offer:nth-child(even) img {
+  float: right;
+}
+@media only screen and (max-width: 769px) {
+  .we-offer .carousel {
+    height: auto;
+  }
+  .we-offer .offer p {
+    margin-top: 4em;
   }
 }

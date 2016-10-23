@@ -1,14 +1,20 @@
 @import "base/base";
 
-.courses {
-	.title {
-		color: @dark-grey;
-		padding: @title-padding 0;
+main {
+	color: @dark-grey;
+	a {
+		.anchor(@blue);
+		text-decoration: none;
 	}
+}
 
+.title {
+	padding: @title-padding 0;
+	color: @dark-grey;
+}
+
+.courses {
 	#sort-options {
-		color: @dark-grey;
-
 		select {
 			color: @blue;
 		}
@@ -30,13 +36,7 @@
 				margin-bottom: 10px;
 			}
 
-			.description {
-				color: @dark-grey;
-			}
-
 			a {
-				color: @blue;
-				text-decoration: none;
 				display: block;
 			}
 
@@ -73,7 +73,6 @@
 	text-align: center;
 	margin-top: @title-padding * 2;
 	margin-bottom: -20px;
-	color: @dark-grey;
 }
 
 .pagination-big:extend(.pagination) {
@@ -83,11 +82,6 @@
 
 		li {
 			display: inline;
-
-			a {
-				.anchor(@blue);
-				text-decoration: none;
-			}
 		}
 	}
 }
@@ -95,7 +89,7 @@
 .pagination-small:extend(.pagination) {
 	font-size: 	1.5em;
 	a {
-		color: @blue;
+		text-decoration: underline;
 	}	
 }
 

@@ -64,6 +64,35 @@
 					</p>
 				</article>
 			</section>
+			<section class="we-offer row">
+				<h2 class="title">Ми пропонуємо</h2>
+				<div class="carousel col-12 row">
+					<section class="box offer active col-s-12">
+						<img src="img/student.png" alt="student">
+						<p>
+							Дистанційне навчання будь де і будь коли абсолютно безкоштовно. 
+							Ви можете підписуватись на необмежену кількість курсів та відслідковувати прогрес їх проходження.
+
+						</p>
+					</section>
+					<section class="box offer col-s-12">
+						<img src="img/computer.png" alt="computer">
+						<p>
+							Інтуітивно зрозумілий редактор для створення будь-яких курсів з дружнім інтерфейсом. 
+							Кожен викладач матиме змогу користуватися цим редактором.
+						</p>
+					</section>
+					<section class="box offer col-s-12">
+						<img src="img/calculation.png" alt="calculation">
+						<p>
+							Перевіряйте та оцінюйте свої знання за допомогою онлайн тестування. 
+							Тести можуть входити до складу будь-якого курсу. Їх проходження підвищує ваш рейтинг.
+						</p>
+					</section>
+					<div class="controls control-prev"></div>
+  					<div class="controls control-next"></div>
+				</div>
+			</section>
 		</main>
 	</div>
 	<footer class="row desktop container">
@@ -78,5 +107,11 @@
 	</nav>
 	<small class="author">&#169; Олександр Аміров</small>
 </footer>
+	<script type="text/javascript" src="scripts/libs/carousel.js"></script>
+	<script type="text/javascript">
+		var element = document.getElementsByClassName('carousel')[0];
+		var carousel = new Carousel(element);
+		carousel.start(15000);
+	</script>
 </body>
 </html>
