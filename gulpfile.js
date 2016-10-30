@@ -4,11 +4,10 @@ var gulp        = require('gulp'),
 	concat      = require('gulp-concat'),
 	del         = require('del'),
 	uglify      = require('gulp-uglifyjs'),
-	cleancss    = require('gulp-clean-css'),
-	ejs         = require('gulp-ejs');
+	cleancss    = require('gulp-clean-css');
 
 var paths = (function() {
-	var base = "public/";
+	var base = "public/static/";
 	var dirs = {
 		styles: {
 			less: "less",
@@ -19,8 +18,7 @@ var paths = (function() {
 			libs: "libs"
 		},
 		build: 'build',
-		img: 'img',
-		templates: 'templates'
+		img: 'img'
 	}
 
 	function getDirPath(tree, dir) {
@@ -56,13 +54,6 @@ gulp.task('js', function() {
 		.pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('templates', function() {
-	return gulp.src(paths.get('templates') + '*.ejs')
-		.pipe(ejs({}, { ext: '.html' }))
-		.pipe(gulp.dest(paths.get('./')))
-		.pipe(browserSync.reload({stream: true}));
-});
-
 gulp.task('browserSync', function() {
 	browserSync({
 		server: {
@@ -89,8 +80,10 @@ gulp.task('build', ['clean', 'less', 'js', 'templates'], function() {
 		.pipe(gulp.dest(paths.get('build')));
 });
 
-gulp.task('watch', ['browserSync', 'less', 'js', 'templates'], function() {
+gulp.task('watch', ['less', 'js'], function () {
 	gulp.watch(paths.get('less') + '**/*.less', ['less']);
 	gulp.watch([paths.get('js') + '**/*.js', '!' + paths.get('js') + 'script.js'], ['js']);
-	gulp.watch(paths.get('templates') + '**/*.ejs', ['templates']);
+	//gulp.watch(paths.get('templates') + '**/*.ejs', ['templates']);
 });
+
+gulp.task('watch-sync', ['browserSync', 'watch']);

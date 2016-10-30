@@ -270,6 +270,49 @@ address {
   right: 5px;
   margin-top: -17px;
 }
+.input {
+  color: #11151C;
+}
+.input:focus {
+  outline: none;
+  border: 1px solid #a0bbe7;
+  box-shadow: 0 0 3px 1px #a0bbe7;
+}
+.btn {
+  padding: 10px 15px;
+  background: none;
+  border: 1px solid #11151C;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  transition: background .2s, color .2s;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn:focus {
+  outline: none;
+}
+.btn-primary {
+  padding: 10px 15px;
+  background: none;
+  border: 1px solid #11151C;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  transition: background .2s, color .2s;
+}
+.btn-primary:hover {
+  cursor: pointer;
+}
+.btn-primary:focus {
+  outline: none;
+}
+.btn-primary:hover {
+  background: #11151C;
+  color: #CAD2C5;
+}
+.btn-primary:active {
+  transform: translateY(1px);
+}
 header {
   background: url("../../img/mac.jpg");
   background-position: 340px 1px;
@@ -452,7 +495,6 @@ main section {
   margin-top: 15px;
 }
 .title {
-  color: #11151C;
   text-align: center;
   padding: 30px 0;
 }

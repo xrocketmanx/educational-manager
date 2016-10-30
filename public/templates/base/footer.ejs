@@ -1,11 +1,16 @@
 <footer class="row desktop container">
 	<div class="col-2 logo-wrap">
-		<a  href="index.html" title="home" class="logo-small logo-dark">E</a>
+		<a  href="/" title="home" class="logo-small logo-dark">E</a>
 	</div>
 	<nav class="col-6 footer-nav">
 		<ul class="nav-list">
-			<li><a href="#">Спільнота</a></li>
-			<li><a href="mailto: xrocketmanx007@gmail.com">Напишить мені</a></li>
+			<% for (var i = 0; i < urls.footer.length; i++) { %>
+				<li>
+					<a href="<%= urls.footer[i].href %>">
+						<%= urls.footer[i].name %>
+					</a>
+				</li>
+			<% } %>
 		</ul>
 	</nav>
 	<small class="author">&#169; Олександр Аміров</small>

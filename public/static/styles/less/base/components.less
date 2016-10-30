@@ -136,3 +136,43 @@
 		margin-top: -17px;
 	}
 }
+
+.input {
+	color: @dark-grey;
+
+	&:focus {
+		outline: none;
+		border: 1px solid @light-blue;
+		box-shadow: 0 0 3px 1px @light-blue;
+	}
+}
+
+.btn {
+	padding: 10px 15px;
+	background: none;
+	border: 1px solid @dark-grey;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	transition: background .2s, color .2s;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.btn-primary {
+	.btn;
+
+	&:hover {
+		background: @dark-grey;
+		color: @white;
+	}
+
+	&:active {
+		transform: translateY(1px);
+	}
+}

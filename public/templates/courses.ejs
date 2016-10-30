@@ -15,9 +15,9 @@
 				<form id="sort-options" action="#" method="GET">
 					<label>
 						Сортувати за: 
-						<select name="sort">
-							<option value="polupar" selected>Популярністю</option>
-							<option value="rated">Рейтингом</option>
+						<select name="order">
+							<option value="likes" selected>Рейтингом</option>
+							<option value="name">Іменем</option>
 						</select>
 					</label>
 					<span class="separator">|</span>
@@ -30,66 +30,17 @@
 					</label>
 				</form>
 				<div class="courses-container row">
-					<article class="course col-4">
-						<img src="img/java.jpg" alt="java">
-						<p class="description">
-							<strong>Java</strong>
-							- одна з найпопулярніших мов програмування. 
-					 		Вона може бути запущена в будь-якому середовищі: лаптопі, телефоні чи навіть микрохвильовій печі.
-						</p>
-						<a href="#" class="reference">Дивитись більше...</a>
-						<a href="#" class="like"><div></div>16</a>
-					</article>
-					<article class="course col-4">
-						<img src="img/java.jpg" alt="java">
-						<p class="description">
-							<strong>Java</strong>
-							- одна з найпопулярніших мов програмування. 
-					 		Вона може бути запущена в будь-якому середовищі: лаптопі, телефоні чи навіть микрохвильовій печі.
-						</p>
-						<a href="#" class="reference">Дивитись більше...</a>
-						<a href="#" class="like"><div></div>16</a>
-					</article>
-					<article class="course col-4">
-						<img src="img/java.jpg" alt="java">
-						<p class="description">
-							<strong>Java</strong>
-							- одна з найпопулярніших мов програмування. 
-					 		Вона може бути запущена в будь-якому середовищі: лаптопі, телефоні чи навіть микрохвильовій печі.
-						</p>
-						<a href="#" class="reference">Дивитись більше...</a>
-						<a href="#" class="like"><div></div>16</a>
-					</article>
-					<article class="course col-4">
-						<img src="img/java.jpg" alt="java">
-						<p class="description">
-							<strong>Java</strong>
-							- одна з найпопулярніших мов програмування. 
-					 		Вона може бути запущена в будь-якому середовищі: лаптопі, телефоні чи навіть микрохвильовій печі.
-						</p>
-						<a href="#" class="reference">Дивитись більше...</a>
-						<a href="#" class="like"><div></div>16</a>
-					</article>
-					<article class="course col-4">
-						<img src="img/java.jpg" alt="java">
-						<p class="description">
-							<strong>Java</strong>
-							- одна з найпопулярніших мов програмування. 
-					 		Вона може бути запущена в будь-якому середовищі: лаптопі, телефоні чи навіть микрохвильовій печі.
-						</p>
-						<a href="#" class="reference">Дивитись більше...</a>
-						<a href="#" class="like"><div></div>16</a>
-					</article>
-					<article class="course col-4">
-						<img src="img/java.jpg" alt="java">
-						<p class="description">
-							<strong>Java</strong>
-							- одна з найпопулярніших мов програмування. 
-					 		Вона може бути запущена в будь-якому середовищі: лаптопі, телефоні чи навіть микрохвильовій печі.
-						</p>
-						<a href="#" class="reference">Дивитись більше...</a>
-						<a href="#" class="like"><div></div>16</a>
-					</article>
+					<% for (var i = 0; i < courses.length; i++) { %>
+						<article class="course col-4">
+							<img src="img/courses/<%= courses[i].imageName %>" alt="<%= courses[i].name %>">
+							<p class="description">
+								<strong><%= courses[i].name %></strong>
+								<%= courses[i].description %>
+							</p>
+							<a href="#" class="reference">Дивитись більше...</a>
+							<a href="#" class="like"><div></div><%= courses[i].likes %></a>
+						</article>
+					<% } %>
 				</div>
 			</section>
 			<section class="pagination-big desktop">

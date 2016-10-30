@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+	<%- include('base/head'); %>
+	<link rel="stylesheet" typDe="text/css" href="styles/css/contacts.css">
+</head>
+<body>
+	<div class="footer-push row">
+		<header class="row">
+			<%- include('base/menu', {active: 3});%>
+		</header>
+		<main class="row container">
+			<section class="contacts">
+				<h2 class="title">Контакти</h2>
+				<address>
+					<p><strong>Розробник:</strong> Олександр Аміров</p>
+					<p><strong>Адреса:</strong> м. Київ Вул. Політехнічна, корпус 5</p>
+					<p><strong>Електронна пошта:</strong> xrocketmanx007@gmail.com</p>
+				</address>
+			</section>
+			<section class="feedback">
+				<h2 class="title">Відправити відгук</h2>
+				<form action="contacts/feedback" method="POST">
+					<label>
+						Відгук: <textarea class="input" name="text" cols="36" rows="12" required></textarea>
+					</label>
+					<input type="submit" class="btn-primary" value="Відправити">
+				</form>
+			</section>
+		</main>
+	</div>
+	<%- include('base/footer'); %>
+</body>
+</html>

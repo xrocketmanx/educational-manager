@@ -10,7 +10,6 @@ main {
 
 .title {
 	padding: @title-padding 0;
-	color: @dark-grey;
 }
 
 .courses {
@@ -29,6 +28,10 @@ main {
 		.course {
 			margin-top: @title-padding + 10;
 			padding: @title-padding;
+
+			&:nth-child(4n) {
+				clear: both;
+			}
 
 			img {
 				width: 100%;

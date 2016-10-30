@@ -1,0 +1,32 @@
+{
+	"menu": 
+	[
+		{ 
+			"href": "courses",
+			"name": "Курси"
+		},
+		{ 
+			"href": "#",
+			"name": "Вчителі"
+		},
+		{ 
+			"href": "contacts",
+			"name": "Контакти"
+		},
+		{ 
+			"href": "about",
+			"name": "Про нас"
+		}
+	],
+	"footer": 
+	[
+		{ 
+			"href": "#",
+			"name": "Спільнота"
+		},
+		{ 
+			"href": "mailto: xrocketmanx007@gmail.com",
+			"name": "Напишіть мені"
+		}
+	]
+}
