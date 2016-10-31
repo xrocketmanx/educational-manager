@@ -5,13 +5,9 @@ function DAO(Model) {
 
 DAO.prototype.db = require('../db').getInstance();
 
-DAO.prototype.insert = function(object) {
+DAO.prototype.insert = function(object, callback) {
 	this.db.connect();
-	this.db.insert({ 
-		table: this.TABLE, 
-		keys: object,
-		values: object 
-	});
+	this.db.insert({ table: this.TABLE, values: object }, callback);
 	this.db.close();
 };
 
