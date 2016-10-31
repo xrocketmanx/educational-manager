@@ -16,7 +16,9 @@ DAO.prototype.insert = function(object) {
 };
 
 DAO.prototype.select = function(callback, options) {
+	options = options || {};
 	options.table = this.TABLE;
+	
 	var self = this;
 	this.db.connect();
 	this.db.select(options, function(error, rows) {
