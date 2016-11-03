@@ -439,7 +439,7 @@ main a.active {
   transform: rotate(180deg);
 }
 @media only screen and (max-width: 769px) {
-  .courses #sort-options label {
+  .courses #sort-options label:not(.sort-ico) {
     display: block;
     margin-top: 10px;
   }
@@ -488,7 +488,7 @@ main a.active {
 }
 @media only screen and (max-width: 769px) {
   .courses .courses-container .course {
-    padding: 0;
+    padding: 0 !important;
   }
 }
 .pagination,

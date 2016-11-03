@@ -23,7 +23,7 @@ main {
 		}
 
 		@media only screen and (max-width: @width-media) {
-			label { display: block; margin-top: 10px; }
+			label:not(.sort-ico) { display: block; margin-top: 10px; }
 			.separator { display: none; }
 		}
 	}
@@ -77,7 +77,7 @@ main {
 			}
 
 			@media only screen and (max-width: @width-media) {
-				padding: 0;
+				padding: 0 !important;
 			}
 		}
 	}
