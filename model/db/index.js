@@ -47,8 +47,15 @@ DBController.prototype.select = function(options, callback) {
 	var statement = sqlBuilder
 		.select(options.table)
 		.where(options.where)
-		.order(options.order);
+		.order(options.order)
+		.limit(options.limit);
 	this.db.all(statement.toString(), callback);
+};
+
+DBController.prototype.count = function(table, callback) {
+	var sqlBuilder = new SqlBuilder();
+	var statement = sqlBuilder.count(table);
+	this.db.get(statement.toString(), callback);
 };
 
 var dbController = null;

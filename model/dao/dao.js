@@ -27,6 +27,18 @@ DAO.prototype.select = function(callback, options) {
 	this.db.close();
 };
 
+DAO.prototype.count = function(callback) {
+	this.db.connect();
+	this.db.count(this.TABLE, function(error, row) {
+		if (error) {
+			callback(error);
+		} else {
+			callback(error, row.count);
+		}
+	});
+	this.db.close();
+};
+
 DAO.prototype._createModel = function(obj) { /*need override*/ };
 
 module.exports = DAO; 

@@ -24,8 +24,14 @@ SqlBuilder.prototype.update = function(table) {
 	return this;
 };
 
-SqlBuilder.prototype.update = function(table) {
+SqlBuilder.prototype.delete = function(table) {
 	var pattern = "DELETE FROM '$'";
+	this.statement += formatStatement(pattern, table);
+	return this;
+};
+
+SqlBuilder.prototype.count = function(table) {
+	var pattern = "SELECT count(*) as count FROM '$'";
 	this.statement += formatStatement(pattern, table);
 	return this;
 };
@@ -57,6 +63,15 @@ SqlBuilder.prototype.order = function(values) {
 		parts.push(formatStatement(partPattern, key, values[key]));
 	}
 	this.statement += formatStatement(pattern, parts.join(delimiter));
+	return this;
+};
+
+SqlBuilder.prototype.limit = function(options) {
+	if (!options) return this;
+	
+	var pattern = " LIMIT '$' OFFSET '$'";
+
+	this.statement += formatStatement(pattern, options.num, options.offset || 0);
 	return this;
 };
 

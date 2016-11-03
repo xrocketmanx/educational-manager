@@ -12,6 +12,7 @@
 		<main class="row container">
 			<section class="courses row">
 				<h2 class="title">Курси</h2>
+				<!-- SORT OPTIONS -->
 				<form id="sort-options" action="" method="GET">
 					<label>
 						Сортувати за: 
@@ -25,7 +26,7 @@
 						</select>
 					</label>
 					<input type="checkbox" name="dir" value="asc" onchange="this.form.submit()" id="sort-dir" hidden
-						<% if (sortOptions.order === "asc") {%> checked <% } %>>
+						<% if (sortOptions.order === "asc") {%> checked <% } %> >
 					<label class="sort-ico" for="sort-dir"></label>
 					<span class="separator">|</span>
 					<label>
@@ -40,6 +41,8 @@
 						</select>
 					</label>
 				</form>
+				<!-- ************ -->
+				<!-- COURSES -->
 				<div class="courses-container row">
 					<% for (var i = 0; i < courses.length; i++) { %>
 						<article class="course col-4">
@@ -53,18 +56,47 @@
 						</article>
 					<% } %>
 				</div>
+				<!-- ******* -->
 			</section>
+			<!-- PAGINATION -->
 			<section class="pagination-big desktop">
 				Сторінка:
 				<ul>
-					<li><a href="#">1</a></li>,
-					<li><a href="#">2</a></li>,
-					<li><a href="#">3</a></li>...<li><a href="#">10</a></li>
+					<% for (var i = 0; i < pageList.pages.length; i++)  { %>
+						<% if (pageList.pages[i] !== pageList.current) { %>
+							<% if (pageList.pages[i]) { %>
+								<li>
+									<a href="courses?<%= sortQuery %>&page=<%= pageList.pages[i] %>">
+										<%= pageList.pages[i] %>		
+									</a>
+								</li>
+							<% } else { %>
+								<li>...</li>
+							<% } %>
+						<% } else { %>
+							<li><%= pageList.pages[i] %></li>
+						<% } %>
+					<% } %>
 				</ul>
 			</section>
 			<section class="pagination-small mobile">
-				<a href="#">Попередня</a>|<a href="#">Наступна</a>
+				<% if (pageList.current > 1) { %>
+					<a href="courses?<%= sortQuery %>&page=<%= pageList.current - 1 %>">
+						Попередня
+					</a>
+				<% } else { %> 
+					Попередня 
+				<% } %>
+				|
+				<% if (pageList.current < pageCount) { %>
+					<a href="courses?<%= sortQuery %>&page=<%= pageList.current + 1 %>">
+						Наступна
+					</a>
+				<% } else { %> 
+					Наступна 
+				<% } %>
 			</section>
+			<!-- ********** -->
 		</main>
 	</div>
 	<%- include('base/footer'); %>
