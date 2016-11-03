@@ -20,16 +20,18 @@ var paths = (function() {
 		},
 		build: 'build',
 		img: 'img'
-	}
+	};
 
 	function getDirPath(tree, dir) {
 		for (var i in tree) {
-			if (typeof tree[i] === 'string' && tree[i] === dir) {
-				return tree[i] + '/';
-			} else if (typeof tree[i] === 'object') {
-				if (i === dir) return i + '/';
-				var recursive = getDirPath(tree[i], dir);
-				if (recursive) return i + '/' + recursive;
+			if (tree.hasOwnProperty(i)) {
+				if (typeof tree[i] === 'string' && tree[i] === dir) {
+					return tree[i] + '/';
+				} else if (typeof tree[i] === 'object') {
+					if (i === dir) return i + '/';
+					var recursive = getDirPath(tree[i], dir);
+					if (recursive) return i + '/' + recursive;
+				}
 			}
 		}
 		return null;
@@ -54,7 +56,7 @@ gulp.task('less', function() {
 		.pipe(gulp.dest(paths.get('css')));
 });
 
-gulp.task('js', function(event) {
+gulp.task('js', function() {
 	var jsFolder = paths.get('js');
 	var folders = paths.getFolders('js');
 	var tasks = folders.map(function(folder) {
@@ -87,3 +89,5 @@ gulp.task('watch', ['less', 'js'], function () {
 	gulp.watch(paths.get('less') + '**/*.less', ['less']);
 	gulp.watch([paths.get('js') + '**/*.js'], ['js']);
 });
+
+gulp.task('default', ['watch']);

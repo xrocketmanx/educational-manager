@@ -25,7 +25,8 @@
     "gulp-concat": "^2.6.0",
     "gulp-ejs": "^2.2.1",
     "gulp-less": "^3.1.0",
-    "gulp-uglifyjs": "^0.6.2"
+    "gulp-uglifyjs": "^0.6.2",
+    "merge-stream": "^1.0.0"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
