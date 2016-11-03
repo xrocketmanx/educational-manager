@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
 });
 
 router.post('/feedback', function (req, res) {
-	var feedback = new Feedback(req.body.text, Date().toString());
+	var feedback = new Feedback(req.body.text, +(new Date()));
 	Feedback.dao.insert(feedback);
 	res.redirect('back');
 });

@@ -280,6 +280,7 @@ address {
 }
 .btn {
   padding: 10px 15px;
+  font-size: 0.83em;
   background: none;
   border: 1px solid #11151C;
   text-transform: uppercase;
@@ -294,6 +295,7 @@ address {
 }
 .btn-primary {
   padding: 10px 15px;
+  font-size: 0.83em;
   background: none;
   border: 1px solid #11151C;
   text-transform: uppercase;
@@ -312,6 +314,14 @@ address {
 }
 .btn-primary:active {
   transform: translateY(1px);
+}
+.sort-ico {
+  display: inline-block;
+  border-top: 12px solid #11151C;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  vertical-align: middle;
+  cursor: pointer;
 }
 header {
   background: url("../../img/mac.jpg");

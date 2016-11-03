@@ -280,6 +280,7 @@ address {
 }
 .btn {
   padding: 10px 15px;
+  font-size: 0.83em;
   background: none;
   border: 1px solid #11151C;
   text-transform: uppercase;
@@ -294,6 +295,7 @@ address {
 }
 .btn-primary {
   padding: 10px 15px;
+  font-size: 0.83em;
   background: none;
   border: 1px solid #11151C;
   text-transform: uppercase;
@@ -312,6 +314,14 @@ address {
 }
 .btn-primary:active {
   transform: translateY(1px);
+}
+.sort-ico {
+  display: inline-block;
+  border-top: 12px solid #11151C;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  vertical-align: middle;
+  cursor: pointer;
 }
 header {
   background: url("../../img/mac.jpg");
@@ -425,6 +435,9 @@ main a.active {
 .courses #sort-options select {
   color: #3066BE;
 }
+.courses #sort-options #sort-dir:checked + .sort-ico {
+  transform: rotate(180deg);
+}
 @media only screen and (max-width: 769px) {
   .courses #sort-options label {
     display: block;
@@ -437,6 +450,14 @@ main a.active {
 .courses .courses-container .course {
   margin-top: 25px;
   padding: 15px;
+}
+.courses .courses-container .course:nth-child(3n) {
+  padding-right: 0;
+  padding-left: 30px;
+}
+.courses .courses-container .course:nth-child(3n+1) {
+  padding-left: 0;
+  padding-right: 30px;
 }
 .courses .courses-container .course:nth-child(4n) {
   clear: both;

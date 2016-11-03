@@ -12,20 +12,31 @@
 		<main class="row container">
 			<section class="courses row">
 				<h2 class="title">Курси</h2>
-				<form id="sort-options" action="#" method="GET">
+				<form id="sort-options" action="" method="GET">
 					<label>
 						Сортувати за: 
-						<select name="order">
-							<option value="likes" selected>Рейтингом</option>
-							<option value="name">Іменем</option>
+						<select name="order" onchange="this.form.submit()">
+							<% for (var i = 0; i < sortFields.length; i++) { %>
+								<option value="<%= sortFields[i].field %>" 
+									<% if (sortFields[i].field === sortOptions.field) {%> selected <% } %> >
+									<%= sortFields[i].name %>
+								</option>
+							<% } %>
 						</select>
 					</label>
+					<input type="checkbox" name="dir" value="asc" onchange="this.form.submit()" id="sort-dir" hidden
+						<% if (sortOptions.order === "asc") {%> checked <% } %>>
+					<label class="sort-ico" for="sort-dir"></label>
 					<span class="separator">|</span>
 					<label>
 						З початку:
-						<select name="sort-date">
-							<option value="new" selected>Нові</option>
-							<option value="old">Старі</option>
+						<select name="sort-date" onchange="this.form.submit()">
+							<% for (var i = 0; i < dateOrders.length; i++) { %>
+								<option value="<%= dateOrders[i].value %>" 
+									<% if (dateOrders[i].value === sortOptions.dateOrder) {%> selected <% } %> >
+									<%= dateOrders[i].name %>
+								</option>
+							<% } %>
 						</select>
 					</label>
 				</form>
@@ -57,6 +68,5 @@
 		</main>
 	</div>
 	<%- include('base/footer'); %>
-	<script type="text/javascript" src="scripts/js/courses.js"></script>
 </body>
 </html>
