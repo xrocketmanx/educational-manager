@@ -4,8 +4,8 @@ function Carousel(carousel) {
     var LEFT_CLASS = 'left';
     var RIGHT_CLASS = 'right';
     var BOX_CLASS = 'box';
-    var NEXT_CONTROLL_CLASS = 'control-next';
-    var PREV_CONTROLL_CLASS = 'control-prev';
+    var NEXT_CONTROL_CLASS = 'control-next';
+    var PREV_CONTROL_CLASS = 'control-prev';
 
 	var boxes = Array.prototype.filter.call(carousel.children, function(box) { 
         return box.classList.contains(BOX_CLASS); 
@@ -48,8 +48,8 @@ function Carousel(carousel) {
     }
 
     function attachEvents() {
-        var nextControl = carousel.querySelector('.' + NEXT_CONTROLL_CLASS);
-        var prevControl = carousel.querySelector('.' + PREV_CONTROLL_CLASS);
+        var nextControl = carousel.querySelector('.' + NEXT_CONTROL_CLASS);
+        var prevControl = carousel.querySelector('.' + PREV_CONTROL_CLASS);
         nextControl.addEventListener('click', self.moveNext.bind(self));
         prevControl.addEventListener('click', self.movePrev.bind(self));
     }

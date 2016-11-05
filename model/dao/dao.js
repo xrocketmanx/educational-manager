@@ -1,20 +1,39 @@
 // Abstract
-function DAO(Model) { 
+function DAO(Model) {
 	this.Model = Model;
 }
 
 DAO.prototype.db = require('../db').getInstance();
 
-DAO.prototype.insert = function(object, callback) {
+DAO.prototype.insert = function(model, callback) {
 	this.db.connect();
-	this.db.insert({ table: this.TABLE, values: object }, callback);
+	this.db.insert({ table: this.TABLE, values: model }, callback);
 	this.db.close();
+};
+
+DAO.prototype.update = function(model) {
+    this.db.connect();
+    this.db.update({
+        table: this.TABLE,
+        values: this._prepareModel(model),
+        where: { id: {sign: '=', value: model.id } }
+    });
+    this.db.close();
+};
+
+DAO.prototype.delete = function(model) {
+    this.db.connect();
+    this.db.delete({
+        table: this.TABLE,
+        where: { id: {sign: '=', value: model.id } }
+    });
+    this.db.close();
 };
 
 DAO.prototype.select = function(callback, options) {
 	options = options || {};
 	options.table = this.TABLE;
-	
+
 	var self = this;
 	this.db.connect();
 	this.db.select(options, function(error, rows) {
@@ -37,6 +56,16 @@ DAO.prototype.count = function(callback) {
 		}
 	});
 	this.db.close();
+};
+
+DAO.prototype._prepareModel = function(model) {
+    var prepared = {};
+    for (var key in model) {
+        if (model.hasOwnProperty(key) && key !== 'id') {
+            prepared[key] = model[key];
+        }
+    }
+    return prepared;
 };
 
 DAO.prototype._createModel = function(obj) { /*need override*/ };
