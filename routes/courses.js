@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
     Course.dao.count(function(error, count) {
         var page = +req.query['page'] || 1;
         var paginator = new Paginator(count, 6);
-        var paginationTemplate = paginator.render(page, { path: req.baseUrl, query: req.query});
+        var paginationTemplate = paginator.render(page, {path: req.baseUrl, query: req.query});
 
         options.limit = {
             num: paginator.itemsPerPage,
@@ -28,6 +28,20 @@ router.get('/', function(req, res) {
             });
         }, options);
     });
+});
+
+router.get('/:id', function(req, res) {
+    Course.dao.get(req.params.id, function(error, course) {
+        res.render('course', {course: course});
+    });
+});
+
+router.post('/:id', function(req, res) {
+    if (req.body.action === 'Delete') {
+        Course.dao.delete({id: req.params.id});
+        res.redirect('/courses');
+    }
+    res.redirect('./');
 });
 
 module.exports = router;

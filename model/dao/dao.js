@@ -7,7 +7,7 @@ DAO.prototype.db = require('../db').getInstance();
 
 DAO.prototype.insert = function(model, callback) {
     this.db.connect();
-    this.db.insert({table: this.TABLE, values: model}, callback);
+    this.db.insert({table: this.TABLE, values: this._prepareModel(model)}, callback);
     this.db.close();
 };
 
@@ -41,6 +41,21 @@ DAO.prototype.select = function(callback, options) {
             callback(error);
         } else {
             callback(error, rows.map(self._createModel.bind(self)));
+        }
+    });
+    this.db.close();
+};
+
+DAO.prototype.get = function(id, callback) {
+    var self = this;
+    this.db.connect();
+    this.db.select({
+        table: this.TABLE,
+        where: {id: {value: id, sign: '='}}}, function(error, rows) {
+        if (error) {
+            callback(error);
+        } else {
+            callback(error, self._createModel(rows[0]));
         }
     });
     this.db.close();
