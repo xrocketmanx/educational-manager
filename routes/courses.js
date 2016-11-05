@@ -10,6 +10,7 @@ router.get('/', function(req, res) {
     Course.dao.count(function(error, count) {
         var page = +req.query['page'] || 1;
         var paginator = new Paginator(count, 6);
+        var paginationTemplate = paginator.render(page, { path: req.baseUrl, query: req.query});
 
         options.limit = {
             num: paginator.itemsPerPage,
@@ -20,11 +21,7 @@ router.get('/', function(req, res) {
             res.render('courses', {
                 courses: courses,
                 sortOptions: sortOptions,
-                sortFields: sortOptions.sortFields,
-                dateOrders: sortOptions.dateOrders,
-                sortQuery: sortOptions.getAsQueryParams(),
-                pageList: paginator.getPageList(page),
-                pageCount: paginator.getPagesCount()
+                paginationTemplate: paginationTemplate
             });
         }, options);
     });
@@ -45,11 +42,4 @@ function SortOptions(field, order, dateOrder) {
         order['date'] = this.dateOrder;
         return order;
     };
-
-    this.getAsQueryParams = function() {
-        var query = 'order=' + this.field;
-        query += '&dir=' + this.order;
-        query += '&sort-date=' + this.dateOrder;
-        return query;
-    }
 }

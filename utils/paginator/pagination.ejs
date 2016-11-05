@@ -1,0 +1,17 @@
+<ul>
+    <% pageList.pages.forEach(function(page) { %>
+    <% if (page !== pageList.current) { %>
+        <% if (page) { %>
+            <li>
+                <a href="<%= url(page) %>">
+                    <%= page %>
+                </a>
+            </li>
+        <% } else { %>
+            <li>...</li>
+        <% } %>
+    <% } else { %>
+        <li><%= page %></li>
+    <% } %>
+    <% }); %>
+</ul>

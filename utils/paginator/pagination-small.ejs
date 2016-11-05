@@ -1,0 +1,15 @@
+<% if (pageList.current > 1) { %>
+    <a href="<%= url(pageList.current - 1) %>">
+        Попередня
+    </a>
+<% } else { %>
+    Попередня
+<% } %>
+|
+<% if (pageList.current < pagesCount) { %>
+    <a href="<%= url(pageList.current + 1) %>">
+        Наступна
+    </a>
+<% } else { %>
+    Наступна
+<% } %>
