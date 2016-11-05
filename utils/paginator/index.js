@@ -35,7 +35,7 @@ Paginator.prototype.getPageList = function(page) {
     }
 
     if (pages[pages.length - 1] < pagesCount - 1) pages.push(null);
-    pages.push(pagesCount);
+    if (pagesCount > 1) pages.push(pagesCount);
 
     pageList.pages = pages;
     return pageList;
