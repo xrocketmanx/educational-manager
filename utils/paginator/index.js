@@ -1,6 +1,7 @@
 var ejs = require('ejs');
 var fs = require('fs');
 var path = require('path');
+var helpers = require('express-helpers')();
 var querystring = require('querystring');
 
 function Paginator(count, itemsPerPage) {
@@ -21,7 +22,7 @@ Paginator.prototype.getPageOffset = function(page) {
 
 Paginator.prototype.getPageList = function(page) {
     var pagesCount = this.getPagesCount();
-    var pageList = {current: page};
+    var pageList = {current: page, count: pagesCount};
     var pages = [];
 
     pages.push(1);
@@ -43,27 +44,22 @@ Paginator.prototype.getPageList = function(page) {
 Paginator.prototype.render = function(page, url) {
     var pageList = this.getPageList(page);
 
-    var paginationTemplate = fs.readFileSync(this._PAGINATION_PATH).toString();
-    var paginationSmallTemplate = fs.readFileSync(this._PAGINATION_SMALL_PATH).toString();
-
-    var pagination = ejs.render(paginationTemplate, {
-        pageList: pageList,
-        url: getPageUrl.bind(null, url)
-    });
-    var paginationSmall = ejs.render(paginationSmallTemplate, {
-        pageList: pageList,
-        url: getPageUrl.bind(null, url),
-        pagesCount: this.getPagesCount()
-    });
-
     return {
-        pagination: pagination,
-        paginationSmall: paginationSmall
+        pagination: renderTemplate(this._PAGINATION_PATH, pageList, url),
+        paginationSmall: renderTemplate(this._PAGINATION_SMALL_PATH, pageList, url)
     };
 };
 
+function renderTemplate(path, pageList, url) {
+    var template = fs.readFileSync(path).toString();
+    return ejs.render(template, {
+        pageList: pageList,
+        url: getPageUrl.bind(null, url),
+        link_to_if: helpers.link_to_if
+    });
+}
+
 function getPageUrl(url, page) {
-    console.log(page);
     url.query.page = page;
     return url.path + '?' + querystring.stringify(url.query);
 }

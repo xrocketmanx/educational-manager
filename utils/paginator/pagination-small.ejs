@@ -1,15 +1,3 @@
-<% if (pageList.current > 1) { %>
-    <a href="<%= url(pageList.current - 1) %>">
-        Попередня
-    </a>
-<% } else { %>
-    Попередня
-<% } %>
+<%- link_to_if(pageList.current > 1, 'Попередня', url(pageList.current - 1)) %>
 |
-<% if (pageList.current < pagesCount) { %>
-    <a href="<%= url(pageList.current + 1) %>">
-        Наступна
-    </a>
-<% } else { %>
-    Наступна
-<% } %>
+<%- link_to_if(pageList.current < pageList.count, 'Наступна', url(pageList.current + 1)) %>

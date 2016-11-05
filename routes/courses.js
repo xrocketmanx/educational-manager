@@ -4,7 +4,7 @@ var Paginator = require('../utils/paginator');
 var Course = require('../model/course');
 
 router.get('/', function(req, res) {
-    var sortOptions = new SortOptions(req.query['order'], req.query['dir'], req.query['sort-date']);
+    var sortOptions = new SortOptions(req.query['order'], req.query['sort-dir'], req.query['sort-date']);
     var options = {order: sortOptions.getOptions()};
 
     Course.dao.count(function(error, count) {
@@ -20,7 +20,9 @@ router.get('/', function(req, res) {
         Course.dao.select(function(error, courses) {
             res.render('courses', {
                 courses: courses,
-                sortOptions: sortOptions,
+                orderSelect: sortOptions.orderSelect,
+                sortOrderBox: sortOptions.sortOrderBox,
+                sortDateSelect: sortOptions.sortDateSelect,
                 paginationTemplate: paginationTemplate
             });
         }, options);
@@ -30,16 +32,34 @@ router.get('/', function(req, res) {
 module.exports = router;
 
 function SortOptions(field, order, dateOrder) {
-    this.sortFields = [{name: 'Рейтингом', field: 'likes'}, {name: 'Іменем', field: 'name'}];
-    this.dateOrders = [{name: 'Нові', value: 'desc'}, {name: 'Старі', value: 'asc'}];
-    this.field = field || this.sortFields[0].field;
-    this.order = order || 'desc';
-    this.dateOrder = dateOrder || this.dateOrders[0].value;
+    this.orderSelect = {
+        sortFields: [{text: 'Рейтингом', value: 'likes'}, {text: 'Іменем', value: 'name'}],
+        props: {
+            value: field || 'likes',
+            onchange: 'this.form.submit()'
+        }
+    };
+    this.sortDateSelect = {
+        sortFields: [{text: 'Нові', value: 'desc'}, {text: 'Старі', value: 'asc'}],
+        props: {
+            value: dateOrder || 'desc',
+            onchange: 'this.form.submit()'
+        }
+    };
+    this.sortOrderBox = {
+        value: order || 'desc',
+        props: {
+            value: 'asc',
+            onchange: 'this.form.submit()',
+            hidden: ''
+        }
+    };
+    if (order) this.sortOrderBox.props.checked = '';
 
     this.getOptions = function() {
         var order = {};
-        order[this.field] = this.order;
-        order['date'] = this.dateOrder;
+        order[this.orderSelect.props.value] = this.sortOrderBox.value;
+        order['date'] = this.sortDateSelect.props.value;
         return order;
     };
 }

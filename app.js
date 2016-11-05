@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+require('express-helpers')(app);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'public/templates'));
 
