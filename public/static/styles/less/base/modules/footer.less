@@ -1,32 +1,32 @@
 @footer-height: 70px;
 .footer-push {
-	min-height: 100%;
-	padding-bottom: @footer-height + 5;
-	/*min-height: 100%;
-	margin-bottom: -@footer-height;
+  min-height: 100%;
+  padding-bottom: @footer-height + 5;
+  /*min-height: 100%;
+  margin-bottom: -@footer-height;
 
-	&::after {
-		height: @footer-height;
-	}*/
+  &::after {
+      height: @footer-height;
+  }*/
 
-	@media only screen and (max-width: @width-media) {
-		padding-bottom: 0;
-	}
+  @media only screen and (max-width: @width-media) {
+    padding-bottom: 0;
+  }
 }
 
 footer {
-	height: @footer-height;
-	background: fade(@dark-grey, 90%);
-	padding-top: 12.5px;
-	padding-bottom: 12.5px;
+  height: @footer-height;
+  background: fade(@dark-grey, 90%);
+  padding-top: 12.5px;
+  padding-bottom: 12.5px;
 
-	.author {
-		float: right;
-		color: @white;
-		padding-top: @nav-top-padding + 3px;
-	}
+  .author {
+    float: right;
+    color: @white;
+    padding-top: @nav-top-padding + 3px;
+  }
 
-	.footer-nav ul {
-		padding-top: @nav-top-padding;
-	}
+  .footer-nav ul {
+    padding-top: @nav-top-padding;
+  }
 }

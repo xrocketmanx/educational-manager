@@ -16,7 +16,7 @@ app.set('routes', path.join(__dirname, 'routes'));
 
 var urls = require('./urls');
 urls(app);
- 
+
 app.use('/', express.static('public/static'));
 
 module.exports = app;

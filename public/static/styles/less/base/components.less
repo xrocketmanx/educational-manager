@@ -1,188 +1,193 @@
 .anchor(@color) {
-	color: @color;
+  color: @color;
 
-	&:hover, &.active {
-		color: darken(@color, 10%);
-	}
+  &:hover, &.active {
+    color: darken(@color, 10%);
+  }
 }
 
 @media only screen and (min-width: @width-media) {
-	.nav-transition {
-		a {
-			position: relative;
-			text-decoration: none;
-			transition: color .2s;
-			&:after {
-				content: '';
-				display: block;
-				position: absolute;
-				bottom: 0;
-				height: 1px;
-				width: 	0;
-				background-color: darken(@white, 10%);
-				transition: width .3s ease-out;	
-			}
-		}
+  .nav-transition {
+    a {
+      position: relative;
+      text-decoration: none;
+      transition: color .2s;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        height: 1px;
+        width: 0;
+        background-color: darken(@white, 10%);
+        transition: width .3s ease-out;
+      }
+    }
 
-		li:hover {
-			cursor: pointer;
-			a {
-				color: darken(@white, 10%)
-			}
-			a:after { 
-				width: 100% !important; 
-			}
-		}
+    li:hover {
+      cursor: pointer;
+      a {
+        color: darken(@white, 10%)
+      }
+      a:after {
+        width: 100% !important;
+      }
+    }
 
-		.active:after {
-			width: 100%;
-		}
+    .active:after {
+      width: 100%;
+    }
 
-		&:hover .active:after { 
-			width: 0;
-		}
-	}
+    &:hover .active:after {
+      width: 0;
+    }
+  }
 }
 
 .nav-list li {
-	display: block;
-	float: left;
-	padding: 0 30px;
+  display: block;
+  float: left;
+  padding: 0 30px;
 
-	a {
-		.anchor(@white);
-	}
+  a {
+    .anchor(@white);
+  }
 
-	@media only screen and (max-width: 930px) {
-		padding: 0 15px;
-	}
+  @media only screen and (max-width: 930px) {
+    padding: 0 15px;
+  }
 }
 
 .phone {
-	color: @white;
-	position: relative;
+  color: @white;
+  position: relative;
 
-	&::before {
-		content: "";
-		background: url("@{img-path}technology.png");
-		background-size: cover;
-		display: block;
-		width: 16px;
-		height: 16px;
-		position: absolute;
-		left: -25px;
-		top: 50%;
-		margin-top: -3px;
-	}
+  &::before {
+    content: "";
+    background: url("@{img-path}technology.png");
+    background-size: cover;
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    margin-top: -3px;
+  }
 }
 
 .btn-menu {
-	cursor: pointer;
-	display: block;
-	transform: translateY(0.5em);
-	width: 2em;
-	height: 2em;
-	background: url("@{img-path}menu.png");
-	background-size: cover;
+  cursor: pointer;
+  display: block;
+  transform: translateY(0.5em);
+  width: 2em;
+  height: 2em;
+  background: url("@{img-path}menu.png");
+  background-size: cover;
 }
 
 .logo(@color, @img) {
-	font-size: 32px;
-	display: inline-block;
-	text-decoration: none;
-	color: @color;
-	border: 1px solid @color;
-	position: relative;
+  font-size: 32px;
+  display: inline-block;
+  text-decoration: none;
+  color: @color;
+  border: 1px solid @color;
+  position: relative;
 
-	h1 {
-		font-weight: normal;
-		font-size: inherit;
-	}
+  h1 {
+    font-weight: normal;
+    font-size: inherit;
+  }
 
-	&::before {
-		content: "";
-		background: url("@{img-path}@{img}.png");
-		display: block;
-		width: 32px;
-		height: 32px;
-		position: absolute;
-		top: 50%;
-	}
+  &::before {
+    content: "";
+    background: url("@{img-path}@{img}.png");
+    display: block;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+  }
 
-	&:hover::before {
-		background: url("@{img-path}yellow-bulb.png");
-	}
+  &:hover::before {
+    background: url("@{img-path}yellow-bulb.png");
+  }
 }
 
-.logo-dark { .logo(@dark-grey, 'dark-bulb'); }
-.logo-light { .logo(@white, 'light-bulb'); }
+.logo-dark {
+  .logo(@dark-grey, 'dark-bulb');
+}
+
+.logo-light {
+  .logo(@white, 'light-bulb');
+}
 
 .logo-big {
-	width: 150px;
-	padding-left: 10px;
+  width: 150px;
+  padding-left: 10px;
 
-	&::before {
-		right: 10px;
-		margin-top: -19px;
-	}
+  &::before {
+    right: 10px;
+    margin-top: -19px;
+  }
 }
 
 .logo-small {
-	width: 65px;
-	padding-left: 5px;
+  width: 65px;
+  padding-left: 5px;
 
-	&::before {
-		right: 5px;
-		margin-top: -17px;
-	}
+  &::before {
+    right: 5px;
+    margin-top: -17px;
+  }
 }
 
 .input {
-	color: @dark-grey;
+  color: @dark-grey;
 
-	&:focus {
-		outline: none;
-		border: 1px solid @light-blue;
-		box-shadow: 0 0 3px 1px @light-blue;
-	}
+  &:focus {
+    outline: none;
+    border: 1px solid @light-blue;
+    box-shadow: 0 0 3px 1px @light-blue;
+  }
 }
 
 .btn {
-	padding: 10px 15px;
-	font-size: 0.83em;
-	background: none;
-	border: 1px solid @dark-grey;
-	text-transform: uppercase;
-	letter-spacing: .05em;
-	transition: background .2s, color .2s;
+  padding: 10px 15px;
+  font-size: 0.83em;
+  background: none;
+  border: 1px solid @dark-grey;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  transition: background .2s, color .2s;
 
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 
-	&:focus {
-		outline: none;
-	}
+  &:focus {
+    outline: none;
+  }
 }
 
 .btn-primary {
-	.btn;
+  .btn;
 
-	&:hover {
-		background: @dark-grey;
-		color: @white;
-	}
+  &:hover {
+    background: @dark-grey;
+    color: @white;
+  }
 
-	&:active {
-		transform: translateY(1px);
-	}
+  &:active {
+    transform: translateY(1px);
+  }
 }
 
 .sort-ico {
-	display: inline-block;
-	border-top: 12px solid @dark-grey;
-	border-left: 8px solid transparent;
-	border-right: 8px solid transparent;
-	vertical-align: middle;
-	cursor: pointer;
+  display: inline-block;
+  border-top: 12px solid @dark-grey;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  vertical-align: middle;
+  cursor: pointer;
 }

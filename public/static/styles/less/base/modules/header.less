@@ -1,78 +1,78 @@
 header {
-	background: url("@{img-path}mac.jpg");
-	background-position: 340px 1px;
+  background: url("@{img-path}mac.jpg");
+  background-position: 340px 1px;
 
-	.intro {
-		color: @white;
-		padding-top: 35px;
-		padding-bottom: 35px;
-	}
+  .intro {
+    color: @white;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
 
-	.main-menu {
-		position: relative;
-		padding-top: 20px;
-		padding-bottom: 20px;
-		background: fade(@dark-grey, 60%);
-		
-		.logo-wrap {
-			min-width: 150px;
-		}
+  .main-menu {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: fade(@dark-grey, 60%);
 
-		.nav-list {		
-			padding-top: @nav-top-padding;
-		}
+    .logo-wrap {
+      min-width: 150px;
+    }
 
-		address {
-			float: right;
-			padding-top: @nav-top-padding;
-		}
+    .nav-list {
+      padding-top: @nav-top-padding;
+    }
 
-		#btn-menu {
-			display: none;
-		}
+    address {
+      float: right;
+      padding-top: @nav-top-padding;
+    }
 
-		.logo-small::before {
-			margin-top: -19px;
-		}
+    #btn-menu {
+      display: none;
+    }
 
-		@media only screen and (max-width: @width-media) {
-			.main-nav {
-				float: right; 
+    .logo-small::before {
+      margin-top: -19px;
+    }
 
-				.nav-list { 
-					display: none; 
-					background: fade(@dark-grey, 90%);
-					position: absolute;
-					right: 0;
-					top: 64px;
-					text-align: center;
-					padding-top: 0;
-					li {
-						float: none;
-						padding: 0;
-						display: block;
+    @media only screen and (max-width: @width-media) {
+      .main-nav {
+        float: right;
 
-						a { 
-							font-size: 1.5em;
-							display: block;
-							text-decoration: none; 
-							padding: .3em .7em;
-							border-bottom: 1px solid @white;
+        .nav-list {
+          display: none;
+          background: fade(@dark-grey, 90%);
+          position: absolute;
+          right: 0;
+          top: 64px;
+          text-align: center;
+          padding-top: 0;
+          li {
+            float: none;
+            padding: 0;
+            display: block;
 
-							&.active {
-								background: @dark-grey;	
-							}
-						}
-					}
-					li:last-child a {
-						border: none;
-					}
-				}
+            a {
+              font-size: 1.5em;
+              display: block;
+              text-decoration: none;
+              padding: .3em .7em;
+              border-bottom: 1px solid @white;
 
-				#btn-menu:checked + ul {
-					display: block;
-				}
-			}
-		}
-	}
+              &.active {
+                background: @dark-grey;
+              }
+            }
+          }
+          li:last-child a {
+            border: none;
+          }
+        }
+
+        #btn-menu:checked + ul {
+          display: block;
+        }
+      }
+    }
+  }
 }

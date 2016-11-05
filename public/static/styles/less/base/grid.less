@@ -1,57 +1,61 @@
 @width-media: 769px;
 
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 [class*="col-"] {
-	float: left;
+  float: left;
 }
 
 .row::after {
-	content: "";
-	display: block;
-	clear: both;
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .container {
-	padding-left: 5%;
-	padding-right: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
 
-	@media only screen and (max-width: @width-media) {
-		padding-left: 2%;
-		padding-right: 2%;
-	}
+  @media only screen and (max-width: @width-media) {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
 }
 
 @media only screen and (min-width: 770px) {
-	.create-grid(12);
+  .create-grid(12);
 }
 
 @media only screen and (max-width: @width-media) {
-	.create-grid(12, small);	
+  .create-grid(12, small);
 }
 
 .mobile {
-	@media only screen and (min-width: 770px) {
-		display: none !important;	
-	}
+  @media only screen and (min-width: 770px) {
+    display: none !important;
+  }
 }
 
 .desktop {
-	@media only screen and (max-width: @width-media) {
-		display: none !important;	
-	}
+  @media only screen and (max-width: @width-media) {
+    display: none !important;
+  }
 }
 
 .create-grid (@n, @i: @n) when (@i > 0) {
-	.col-@{i} { width: 100% * @i / @n; }
-	.create-grid(@n, @i - 1);
+  .col-@{i} {
+    width: 100% * @i / @n;
+  }
+  .create-grid(@n, @i - 1);
 }
 
 .create-grid (@n, small, @i: @n) when (@i > 0) {
-	.col-s-@{i} { width: 100% * @i / @n; }
-	.create-grid(@n, small, @i - 1);
+  .col-s-@{i} {
+    width: 100% * @i / @n;
+  }
+  .create-grid(@n, small, @i - 1);
 }

@@ -1,14 +1,14 @@
 // Abstract
 function DAO(Model) {
-	this.Model = Model;
+    this.Model = Model;
 }
 
 DAO.prototype.db = require('../db').getInstance();
 
 DAO.prototype.insert = function(model, callback) {
-	this.db.connect();
-	this.db.insert({ table: this.TABLE, values: model }, callback);
-	this.db.close();
+    this.db.connect();
+    this.db.insert({table: this.TABLE, values: model}, callback);
+    this.db.close();
 };
 
 DAO.prototype.update = function(model) {
@@ -16,7 +16,7 @@ DAO.prototype.update = function(model) {
     this.db.update({
         table: this.TABLE,
         values: this._prepareModel(model),
-        where: { id: {sign: '=', value: model.id } }
+        where: {id: {sign: '=', value: model.id}}
     });
     this.db.close();
 };
@@ -25,37 +25,37 @@ DAO.prototype.delete = function(model) {
     this.db.connect();
     this.db.delete({
         table: this.TABLE,
-        where: { id: {sign: '=', value: model.id } }
+        where: {id: {sign: '=', value: model.id}}
     });
     this.db.close();
 };
 
 DAO.prototype.select = function(callback, options) {
-	options = options || {};
-	options.table = this.TABLE;
+    options = options || {};
+    options.table = this.TABLE;
 
-	var self = this;
-	this.db.connect();
-	this.db.select(options, function(error, rows) {
-		if (error) {
-			callback(error);
-		} else {
-			callback(error, rows.map(self._createModel.bind(self)));
-		}
-	});
-	this.db.close();
+    var self = this;
+    this.db.connect();
+    this.db.select(options, function(error, rows) {
+        if (error) {
+            callback(error);
+        } else {
+            callback(error, rows.map(self._createModel.bind(self)));
+        }
+    });
+    this.db.close();
 };
 
 DAO.prototype.count = function(callback) {
-	this.db.connect();
-	this.db.count(this.TABLE, function(error, row) {
-		if (error) {
-			callback(error);
-		} else {
-			callback(error, row.count);
-		}
-	});
-	this.db.close();
+    this.db.connect();
+    this.db.count(this.TABLE, function(error, row) {
+        if (error) {
+            callback(error);
+        } else {
+            callback(error, row.count);
+        }
+    });
+    this.db.close();
 };
 
 DAO.prototype._prepareModel = function(model) {
@@ -68,6 +68,7 @@ DAO.prototype._prepareModel = function(model) {
     return prepared;
 };
 
-DAO.prototype._createModel = function(obj) { /*need override*/ };
+DAO.prototype._createModel = function(obj) { /*need override*/
+};
 
 module.exports = DAO; 

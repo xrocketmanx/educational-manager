@@ -1,110 +1,116 @@
 @import "base/base";
 
 main {
-	color: @dark-grey;
-	a {
-		.anchor(@blue);
-		text-decoration: none;
-	}
+  color: @dark-grey;
+  a {
+    .anchor(@blue);
+    text-decoration: none;
+  }
 }
 
 .title {
-	padding: @title-padding 0;
+  padding: @title-padding 0;
 }
 
 .courses {
-	#sort-options {
-		select {
-			color: @blue;
-		}
+  #sort-options {
+    select {
+      color: @blue;
+    }
 
-		#sort-dir:checked + .sort-ico {
-			transform: rotate(180deg);
-		}
+    #sort-dir:checked + .sort-ico {
+      transform: rotate(180deg);
+    }
 
-		@media only screen and (max-width: @width-media) {
-			label:not(.sort-ico) { display: block; margin-top: 10px; }
-			.separator { display: none; }
-		}
-	}
+    @media only screen and (max-width: @width-media) {
+      label:not(.sort-ico) {
+        display: block;
+        margin-top: 10px;
+      }
 
-	.courses-container {
-		.course {
-			margin-top: @title-padding + 10;
-			padding: @title-padding;
+      .separator {
+        display: none;
+      }
+    }
+  }
 
-			&:nth-child(3n) {
-				padding-right: 0;
-				padding-left: 2 * @title-padding;
-			}
-			&:nth-child(3n+1) {
-				padding-left: 0;
-				padding-right: 2 * @title-padding;
-			}
-			&:nth-child(4n) {
-				clear: both;
-			}
+  .courses-container {
+    .course {
+      margin-top: @title-padding + 10;
+      padding: @title-padding;
 
-			img {
-				width: 100%;
-				border: 1px solid @dark-grey;
-				margin-bottom: 10px;
-			}
+      &:nth-child(3n) {
+        padding-right: 0;
+        padding-left: 2 * @title-padding;
+      }
+      &:nth-child(3n+1) {
+        padding-left: 0;
+        padding-right: 2 * @title-padding;
+      }
+      &:nth-child(4n) {
+        clear: both;
+      }
 
-			a {
-				display: block;
-			}
+      img {
+        width: 100%;
+        border: 1px solid @dark-grey;
+        margin-bottom: 10px;
+      }
 
-			@like-size: 24px;
+      a {
+        display: block;
+      }
 
-			.reference {
-				float: left;
-				padding-top: @like-size - 2;
-			}
+      @like-size: 24px;
 
-			.like {
-				float: right;
-				width: @like-size;
-				height: @like-size * 2;
-				text-align: center;
-				font-size: 0.9em;
+      .reference {
+        float: left;
+        padding-top: @like-size - 2;
+      }
 
-				div {
-					width: @like-size;
-					height: @like-size;
-					background: url("@{img-path}star.png");
-				}
-			}
+      .like {
+        float: right;
+        width: @like-size;
+        height: @like-size * 2;
+        text-align: center;
+        font-size: 0.9em;
 
-			@media only screen and (max-width: @width-media) {
-				padding: 0 !important;
-			}
-		}
-	}
+        div {
+          width: @like-size;
+          height: @like-size;
+          background: url("@{img-path}star.png");
+        }
+      }
+
+      @media only screen and (max-width: @width-media) {
+        padding: 0 !important;
+      }
+    }
+  }
 }
 
 .pagination {
-	display: block;
-	text-align: center;
-	margin-top: @title-padding * 2;
-	margin-bottom: -20px;
+  display: block;
+  text-align: center;
+  margin-top: @title-padding * 2;
+  margin-bottom: -20px;
 }
 
 .pagination-big:extend(.pagination) {
-	ul {
-		display: inline;
-		list-style-type: none;
+  ul {
+    display: inline;
+    list-style-type: none;
 
-		li {
-			display: inline;
-		}
-	}
+    li {
+      display: inline;
+    }
+  }
 }
 
 .pagination-small:extend(.pagination) {
-	font-size: 	1.5em;
-	a {
-		text-decoration: underline;
-	}	
+  font-size: 1.5em;
+  a {
+    text-decoration: underline;
+  }
 }
 

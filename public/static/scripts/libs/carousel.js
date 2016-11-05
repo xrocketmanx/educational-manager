@@ -7,12 +7,12 @@ function Carousel(carousel) {
     var NEXT_CONTROL_CLASS = 'control-next';
     var PREV_CONTROL_CLASS = 'control-prev';
 
-	var boxes = Array.prototype.filter.call(carousel.children, function(box) { 
-        return box.classList.contains(BOX_CLASS); 
+    var boxes = Array.prototype.filter.call(carousel.children, function(box) {
+        return box.classList.contains(BOX_CLASS);
     });
     var pos;
     var animation = null;
-    
+
     this.moveNext = function() {
         move(getNext);
     };
@@ -20,20 +20,20 @@ function Carousel(carousel) {
     this.movePrev = function() {
         move(getPrev);
     };
-    
+
     this.start = function(interval, direction) {
         interval = interval || 2000;
         direction = direction || 'forward';
         var func;
 
-        if (direction === 'forward') func = this.moveNext.bind(this); 
+        if (direction === 'forward') func = this.moveNext.bind(this);
         else if (direction === 'backward') func = this.movePrev.bind(this);
 
-    	animation = setInterval(func, interval);
+        animation = setInterval(func, interval);
     };
-    
+
     this.stop = function() {
-    	clearInterval(animation);
+        clearInterval(animation);
     };
 
     function initPosition() {
@@ -80,7 +80,9 @@ function Carousel(carousel) {
             if (block) return;
             block = true;
             func.apply(this, arguments);
-            setTimeout(function() {block = false}, ms);
+            setTimeout(function() {
+                block = false
+            }, ms);
         };
     }
 

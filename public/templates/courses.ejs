@@ -1,104 +1,114 @@
 <!DOCTYPE html>
 <html lang="ua">
 <head>
-	<%- include('base/head'); %>
-	<link rel="stylesheet" typDe="text/css" href="styles/css/courses.css">
+    <%- include('base/head'); %>
+    <link rel="stylesheet" typDe="text/css" href="styles/css/courses.css">
 </head>
 <body>
-	<div class="footer-push row">
-		<header class="row">
-			<%- include('base/menu', {active: 1});%>
-		</header>
-		<main class="row container">
-			<section class="courses row">
-				<h2 class="title">Курси</h2>
-				<!-- SORT OPTIONS -->
-				<form id="sort-options" action="" method="GET">
-					<label>
-						Сортувати за: 
-						<select name="order" onchange="this.form.submit()">
-							<% sortFields.forEach(function(option) { %>
-								<option value="<%= option.field %>" 
-									<% if (option.field === sortOptions.field) {%> selected <% } %> >
-									<%= option.name %>
-								</option>
-							<% }); %>
-						</select>
-					</label>
-					<input type="checkbox" name="dir" value="asc" onchange="this.form.submit()" id="sort-dir" hidden
-						<% if (sortOptions.order === "asc") {%> checked <% } %> >
-					<label class="sort-ico" for="sort-dir"></label>
-					<span class="separator">|</span>
-					<label>
-						З початку:
-						<select name="sort-date" onchange="this.form.submit()">
-							<% dateOrders.forEach(function(option) { %>
-								<option value="<%= option.value %>" 
-									<% if (option.value === sortOptions.dateOrder) {%> selected <% } %> >
-									<%= option.name %>
-								</option>
-							<% }); %>
-						</select>
-					</label>
-				</form>
-				<!-- ************ -->
-				<!-- COURSES -->
-				<div class="courses-container row">
-					<% courses.forEach(function(course) { %>
-						<article class="course col-4">
-							<img src="img/courses/<%= course.imageName %>" alt="<%= course.name %>">
-							<p class="description">
-								<strong><%= course.name %></strong>
-								<%= course.description %>
-							</p>
-							<a href="#" class="reference">Дивитись більше...</a>
-							<a href="#" class="like"><div></div><%= course.likes %></a>
-						</article>
-					<% }); %>
-				</div>
-				<!-- ******* -->
-			</section>
-			<!-- PAGINATION -->
-			<section class="pagination-big desktop">
-				Сторінка:
-				<ul>
-					<% pageList.pages.forEach(function(page) { %>
-						<% if (page !== pageList.current) { %>
-							<% if (page) { %>
-								<li>
-									<a href="courses?<%= sortQuery %>&page=<%= page %>">
-										<%= page %>		
-									</a>
-								</li>
-							<% } else { %>
-								<li>...</li>
-							<% } %>
-						<% } else { %>
-							<li><%= page %></li>
-						<% } %>
-					<% }); %>
-				</ul>
-			</section>
-			<section class="pagination-small mobile">
-				<% if (pageList.current > 1) { %>
-					<a href="courses?<%= sortQuery %>&page=<%= pageList.current - 1 %>">
-						Попередня
-					</a>
-				<% } else { %> 
-					Попередня 
-				<% } %>
-				|
-				<% if (pageList.current < pageCount) { %>
-					<a href="courses?<%= sortQuery %>&page=<%= pageList.current + 1 %>">
-						Наступна
-					</a>
-				<% } else { %> 
-					Наступна 
-				<% } %>
-			</section>
-			<!-- ********** -->
-		</main>
-	</div>
-	<%- include('base/footer'); %>
+<div class="footer-push row">
+    <header class="row">
+        <%- include('base/menu', {active: 1}); %>
+    </header>
+    <main class="row container">
+        <section class="courses row">
+            <h2 class="title">Курси</h2>
+            <!-- SORT OPTIONS -->
+            <form id="sort-options" action="" method="GET">
+                <label>
+                    Сортувати за:
+                    <select name="order" onchange="this.form.submit()">
+                        <% sortFields.forEach(function(option) { %>
+                        <option value="<%= option.field %>"
+                                <% if (option.field === sortOptions.field) { %>
+                                selected
+                                <% } %>
+                        >
+                            <%= option.name %>
+                        </option>
+                        <% }); %>
+                    </select>
+                </label>
+                <input type="checkbox" name="dir" value="asc" onchange="this.form.submit()" id="sort-dir" hidden
+                        <% if (sortOptions.order === "asc") { %>
+                       checked
+                        <% } %>
+                >
+                <label class="sort-ico" for="sort-dir"></label>
+                <span class="separator">|</span>
+                <label>
+                    З початку:
+                    <select name="sort-date" onchange="this.form.submit()">
+                        <% dateOrders.forEach(function(option) { %>
+                        <option value="<%= option.value %>"
+                                <% if (option.value === sortOptions.dateOrder) { %>
+                                selected
+                                <% } %>
+                        >
+                            <%= option.name %>
+                        </option>
+                        <% }); %>
+                    </select>
+                </label>
+            </form>
+            <!-- ************ -->
+            <!-- COURSES -->
+            <div class="courses-container row">
+                <% courses.forEach(function(course) { %>
+                <article class="course col-4">
+                    <img src="img/courses/<%= course.imageName %>" alt="<%= course.name %>">
+                    <p class="description">
+                        <strong><%= course.name %></strong>
+                        <%= course.description %>
+                    </p>
+                    <a href="#" class="reference">Дивитись більше...</a>
+                    <a href="#" class="like">
+                        <div></div><%= course.likes %></a>
+                </article>
+                <% }); %>
+            </div>
+            <!-- ******* -->
+        </section>
+        <!-- PAGINATION -->
+        <section class="pagination-big desktop">
+            Сторінка:
+            <ul>
+                <% pageList.pages.forEach(function(page) { %>
+                <% if (page !== pageList.current) { %>
+                <% if (page) { %>
+                <li>
+                    <a href="courses?<%= sortQuery %>&page=<%= page %>">
+                        <%= page %>
+                    </a>
+                </li>
+                <% } else { %>
+                <li>...</li>
+                <% } %>
+                <% } else { %>
+                <li><%= page %></li>
+                <% } %>
+                <% }); %>
+            </ul>
+        </section>
+        <section class="pagination-small mobile">
+            <% if (pageList.current > 1) { %>
+            <a href="courses?<%= sortQuery %>&page=<%= pageList.current - 1 %>">
+                Попередня
+            </a>
+            <% } else { %>
+            Попередня
+            <% } %>
+            |
+            <% if (pageList.current < pageCount) { %>
+            <a href="courses?<%= sortQuery %>&page=<%= pageList.current + 1 %>">
+                Наступна
+            </a>
+            <% } else { %>
+            Наступна
+            <% } %>
+        </section>
+        <!-- ********** -->
+    </main>
+</div>
+<%- include('base/footer'); %>
 </body>
 </html>

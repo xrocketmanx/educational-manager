@@ -1,71 +1,74 @@
 <!DOCTYPE html>
 <html lang="ua">
 <head>
-	<%- include('base/head'); %>
-	<link rel="stylesheet" typDe="text/css" href="styles/css/index.css">
+    <%- include('base/head'); %>
+    <link rel="stylesheet" typDe="text/css" href="styles/css/index.css">
 </head>
 <body>
-	<div class="footer-push row">
-		<header class="row">
-			<%- include('base/menu', { active: 0 }); %>
-			<div class="row intro container">
-				<p class="col-6">
-					<strong>Edum</strong> 
-					це інтерактивний освітній ресурс. Він дозволяє користувачам створювати чи вивчати курси різних напрямів.
-					З онлайн відео трансляціями і тестуванням користувачи не помітять різниці порівняно з стаціонарним навчанням.
-				</p>
-			</div>
-		</header>
-		<main class="row container">
-			<section class="top-courses row">
-				<h2 class="title">Найпопулярніші курси</h2>
-				<% for (var i = 0; i < 3; i++) { %>
-					<article class="col-4 course">
-						<img src="img/courses/<%= courses[i].imageName %>" alt="<%= courses[i].name %>">
-						<p>
-							<a href="https://uk.wikipedia.org/wiki/<%= courses[i].name %>" target="_blank"><%= courses[i].name %></a>
-						 	<%= courses[i].description %>
-						</p>
-					</article>
-				<% } %>
-			</section>
-			<section class="we-offer row">
-				<h2 class="title">Ми пропонуємо</h2>
-				<div class="carousel col-12 row">
-					<section class="box offer active col-s-12">
-						<img src="img/student.png" alt="student">
-						<p>
-							Дистанційне навчання будь де і будь коли абсолютно безкоштовно. 
-							Ви можете підписуватись на необмежену кількість курсів та відслідковувати прогрес їх проходження.
+<div class="footer-push row">
+    <header class="row">
+        <%- include('base/menu', { active: 0 }); %>
+        <div class="row intro container">
+            <p class="col-6">
+                <strong>Edum</strong>
+                це інтерактивний освітній ресурс. Він дозволяє користувачам створювати чи вивчати курси різних напрямів.
+                З онлайн відео трансляціями і тестуванням користувачи не помітять різниці порівняно з стаціонарним
+                навчанням.
+            </p>
+        </div>
+    </header>
+    <main class="row container">
+        <section class="top-courses row">
+            <h2 class="title">Найпопулярніші курси</h2>
+            <% for (var i = 0; i < 3; i++) { %>
+            <article class="col-4 course">
+                <img src="img/courses/<%= courses[i].imageName %>" alt="<%= courses[i].name %>">
+                <p>
+                    <a href="https://uk.wikipedia.org/wiki/<%= courses[i].name %>"
+                       target="_blank"><%= courses[i].name %></a>
+                    <%= courses[i].description %>
+                </p>
+            </article>
+            <% } %>
+        </section>
+        <section class="we-offer row">
+            <h2 class="title">Ми пропонуємо</h2>
+            <div class="carousel col-12 row">
+                <section class="box offer active col-s-12">
+                    <img src="img/student.png" alt="student">
+                    <p>
+                        Дистанційне навчання будь де і будь коли абсолютно безкоштовно.
+                        Ви можете підписуватись на необмежену кількість курсів та відслідковувати прогрес їх
+                        проходження.
 
-						</p>
-					</section>
-					<section class="box offer col-s-12">
-						<img src="img/computer.png" alt="computer">
-						<p>
-							Інтуітивно зрозумілий редактор для створення будь-яких курсів з дружнім інтерфейсом. 
-							Кожен викладач матиме змогу користуватися цим редактором.
-						</p>
-					</section>
-					<section class="box offer col-s-12">
-						<img src="img/calculation.png" alt="calculation">
-						<p>
-							Перевіряйте та оцінюйте свої знання за допомогою онлайн тестування. 
-							Тести можуть входити до складу будь-якого курсу. Їх проходження підвищує ваш рейтинг.
-						</p>
-					</section>
-					<div class="controls control-prev"></div>
-  					<div class="controls control-next"></div>
-				</div>
-			</section>
-		</main>
-	</div>
-	<%- include('base/footer'); %>
-	<script type="text/javascript" src="scripts/libs/carousel.js"></script>
-	<script type="text/javascript">
-		var element = document.getElementsByClassName('carousel')[0];
-		var carousel = new Carousel(element);
-		carousel.start(15000);
-	</script>
+                    </p>
+                </section>
+                <section class="box offer col-s-12">
+                    <img src="img/computer.png" alt="computer">
+                    <p>
+                        Інтуітивно зрозумілий редактор для створення будь-яких курсів з дружнім інтерфейсом.
+                        Кожен викладач матиме змогу користуватися цим редактором.
+                    </p>
+                </section>
+                <section class="box offer col-s-12">
+                    <img src="img/calculation.png" alt="calculation">
+                    <p>
+                        Перевіряйте та оцінюйте свої знання за допомогою онлайн тестування.
+                        Тести можуть входити до складу будь-якого курсу. Їх проходження підвищує ваш рейтинг.
+                    </p>
+                </section>
+                <div class="controls control-prev"></div>
+                <div class="controls control-next"></div>
+            </div>
+        </section>
+    </main>
+</div>
+<%- include('base/footer'); %>
+<script type="text/javascript" src="scripts/libs/carousel.js"></script>
+<script type="text/javascript">
+    var element = document.getElementsByClassName('carousel')[0];
+    var carousel = new Carousel(element);
+    carousel.start(15000);
+</script>
 </body>
 </html>

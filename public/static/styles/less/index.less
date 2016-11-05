@@ -2,70 +2,86 @@
 @import "base/libs/carousel";
 
 main {
-	color: @dark-grey;
-	a {
-		.anchor(@blue);
-		text-decoration: none;
-	}
+  color: @dark-grey;
+  a {
+    .anchor(@blue);
+    text-decoration: none;
+  }
 
-	section {
-		margin-top: 15px;
-	}
+  section {
+    margin-top: 15px;
+  }
 }
 
 .title {
-	text-align: center;
-	padding: @title-padding*2 0;
+  text-align: center;
+  padding: @title-padding*2 0;
 }
 
 .top-courses {
-	.course { 	
-		padding: 0 @title-padding;
+  .course {
+    padding: 0 @title-padding;
 
-		&:first-of-type { padding-left: 0; padding-right: 2*@title-padding; }
-		&:last-of-type { padding-right: 0; padding-left: 2*@title-padding; }
+    &:first-of-type {
+      padding-left: 0;
+      padding-right: 2*@title-padding;
+    }
+    &:last-of-type {
+      padding-right: 0;
+      padding-left: 2*@title-padding;
+    }
 
-		img {
-			width: 100%;
-			border: 1px solid @dark-grey;
-			margin-bottom: 20px;
-		}
+    img {
+      width: 100%;
+      border: 1px solid @dark-grey;
+      margin-bottom: 20px;
+    }
 
-		@media only screen and (max-width: @width-media) {
-			padding: 0 !important;
-			margin-bottom: @title-padding*2;
+    @media only screen and (max-width: @width-media) {
+      padding: 0 !important;
+      margin-bottom: @title-padding*2;
 
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-	}
-}	
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
 
 .we-offer {
-	.carousel {
-		height: 500px;
-		border: 1px solid @white;
-		background: lighten(@white, 19%);
+  .carousel {
+    height: 500px;
+    border: 1px solid @white;
+    background: lighten(@white, 19%);
 
-		.offer {
-			padding: 100px 50px;
+    .offer {
+      padding: 100px 50px;
 
-			img {
-				height: 300px;
-				max-width: 100%;
-				float: left;
-				margin: 0 @title-padding @title-padding 0;
-			}
-		} 
-		.offer:nth-child(even) {
-			img { float: right; }
-		}
-	}
+      img {
+        height: 300px;
+        max-width: 100%;
+        float: left;
+        margin: 0 @title-padding @title-padding 0;
+      }
+    }
+    .offer:nth-child(even) {
+      img {
+        float: right;
+      }
+    }
+  }
 
-	@media only screen and (max-width: @width-media) {
-		.carousel { height: auto; }
-		img { float: none !important; } 
-		.offer { text-align: center; }
-	}
+  @media only screen and (max-width: @width-media) {
+    .carousel {
+      height: auto;
+    }
+
+    img {
+      float: none !important;
+    }
+
+    .offer {
+      text-align: center;
+    }
+  }
 }
