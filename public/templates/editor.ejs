@@ -2,6 +2,7 @@
 <html lang="ua">
 <head>
     <%- include('base/head'); %>
+    <link rel="stylesheet" typDe="text/css" href="/styles/css/editor.css">
 </head>
 <body>
 <div class="footer-push row">
@@ -9,7 +10,21 @@
         <%- include('base/menu', {active: 2}); %>
     </header>
     <main class="row container">
-
+        <section class="create-course">
+            <h2 class="title">Створити курс:</h2>
+            <form class="form" name="course" action="" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+                <fieldset class="fieldset">
+                    <legend>Основна інформація:</legend>
+                    <label>Назва: <input type="text" class="input" name="name" size="32" required></label>
+                    <label>Опис: <textarea class="input textarea" name="description" rows="6" cols="32" required></textarea></label>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend>Прикладені файли:</legend>
+                    <label>Картинка: <input type="file" name="image" accept="image/*,image/jpeg" required></label>
+                </fieldset>
+                <input type="submit" class="btn-primary" value="Створити">
+            </form>
+        </section>
     </main>
 </div>
 <%- include('base/footer'); %>

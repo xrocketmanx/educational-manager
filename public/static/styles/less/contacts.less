@@ -13,28 +13,3 @@
     }
   }
 }
-
-.feedback {
-  form {
-    display: inline-block;
-    padding: @title-padding;
-    border: 1px solid @white;
-    background: lighten(@white, 19%);
-  }
-
-  textarea {
-    display: block;
-    margin: 10px 0;
-    resize: none;
-  }
-
-  @media only screen and (max-width: @width-media) {
-    form {
-      display: block;
-    }
-
-    input[type=submit], textarea {
-      width: 100%;
-    }
-  }
-}

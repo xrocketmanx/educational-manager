@@ -500,12 +500,17 @@ footer .author {
 footer .footer-nav ul {
   padding-top: 17px;
 }
+main {
+  color: #11151C;
+}
+main a {
+  color: #3066BE;
+  text-decoration: none;
+}
+main a:hover,
+main a.active {
+  color: #265095;
+}
 .title {
   padding: 15px 0;
-}
-.contacts address {
-  font-style: italic;
-}
-.contacts address strong {
-  font-style: normal;
 }

@@ -1,3 +1,6 @@
+/*
+ *ANCHORS
+*/
 .anchor(@color) {
   color: @color;
 
@@ -6,6 +9,9 @@
   }
 }
 
+/*
+ *ANIMATED NAVIGATION
+*/
 @media only screen and (min-width: @width-media) {
   .nav-transition {
     a {
@@ -44,6 +50,9 @@
   }
 }
 
+/*
+ *MENU
+*/
 .nav-list li {
   display: block;
   float: left;
@@ -58,6 +67,9 @@
   }
 }
 
+/*
+ *PHONE ICON
+*/
 .phone {
   color: @white;
   position: relative;
@@ -76,6 +88,9 @@
   }
 }
 
+/*
+ *MOBILE MENU ICON
+*/
 .btn-menu {
   cursor: pointer;
   display: block;
@@ -86,6 +101,9 @@
   background-size: cover;
 }
 
+/*
+ *LOGO
+*/
 .logo(@color, @img) {
   font-size: 32px;
   display: inline-block;
@@ -142,16 +160,65 @@
   }
 }
 
+/*
+ *FORMS
+*/
+.form {
+  display: inline-block;
+  border: 1px solid @white;
+  background: lighten(@white, 19%);
+  padding: @title-padding;
+}
+
+.input, .textarea {
+  display: block;
+  margin: 5px 0 10px 0;
+}
+
+@border-color: rgb(169, 169, 169);
 .input {
   color: @dark-grey;
+  border: 1px solid @border-color;
 
   &:focus {
     outline: none;
-    border: 1px solid @light-blue;
+    border-color: @light-blue;
     box-shadow: 0 0 3px 1px @light-blue;
   }
 }
 
+.fieldset {
+  padding: @title-padding / 2;
+  border: 1px solid @white;
+
+  &:nth-child(n+2) {
+    margin: @title-padding / 2 0;
+  }
+
+  legend {
+    font-weight: bold;
+  }
+}
+
+.textarea {
+  resize: none;
+}
+
+@media only screen and (max-width: @width-media) {
+  .input, .textarea, input[type=submit] {
+    width: 100%;
+  }
+  .form {
+    display: block;
+  }
+  .fieldset {
+    border: none;
+  }
+}
+
+/*
+ *BUTTONS
+*/
 .btn {
   padding: 10px 15px;
   font-size: 0.83em;
@@ -183,6 +250,9 @@
   }
 }
 
+/*
+ *SORT DIR ICON
+*/
 .sort-ico {
   display: inline-block;
   border-top: 12px solid @dark-grey;
@@ -192,7 +262,9 @@
   cursor: pointer;
 }
 
-//TODO: make without div
+/*
+ *LIKE ICON
+*/
 @like-size: 24px;
 .like {
   display: inline-block;

@@ -5,7 +5,7 @@ var Course = require('../model/course');
 router.get('/', function(req, res) {
     Course.dao.select(function(error, courses) {
         res.render('editor', {courses: courses});
-    }, {});
+    }, {order:{date:'desc'}});
 });
 
 module.exports = router;
