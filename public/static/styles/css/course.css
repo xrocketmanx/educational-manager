@@ -432,32 +432,24 @@ footer .author {
 footer .footer-nav ul {
   padding-top: 17px;
 }
-.title {
+main {
+  color: #11151C;
+}
+main a {
+  color: #3066BE;
+  text-decoration: none;
+}
+main a:hover,
+main a.active {
+  color: #265095;
+}
+.course header {
   padding: 15px 0;
 }
-.contacts address {
-  font-style: italic;
+.course .title,
+.course .like {
+  float: left;
 }
-.contacts address strong {
-  font-style: normal;
-}
-.feedback form {
-  display: inline-block;
-  padding: 15px;
-  border: 1px solid #CAD2C5;
-  background: #fcfcfc;
-}
-.feedback textarea {
-  display: block;
-  margin: 10px 0;
-  resize: none;
-}
-@media only screen and (max-width: 769px) {
-  .feedback form {
-    display: block;
-  }
-  .feedback input[type=submit],
-  .feedback textarea {
-    width: 100%;
-  }
+.course .like {
+  margin-left: 10px;
 }

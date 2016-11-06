@@ -1,19 +1,19 @@
 {
   "menu": [
     {
-      "href": "courses",
+      "href": "/courses",
       "name": "Курси"
     },
     {
-      "href": "#",
-      "name": "Вчителі"
+      "href": "/editor",
+      "name": "Вчителям"
     },
     {
-      "href": "contacts",
+      "href": "/contacts",
       "name": "Контакти"
     },
     {
-      "href": "about",
+      "href": "/about",
       "name": "Про нас"
     }
   ],

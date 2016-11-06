@@ -2,19 +2,21 @@
 <html lang="ua">
 <head>
     <%- include('base/head'); %>
-    <link rel="stylesheet" typDe="text/css" href="/styles/css/courses.css">
+    <link rel="stylesheet" typDe="text/css" href="/styles/css/course.css">
 </head>
 <body>
 <div class="footer-push row">
-    <header class="row">
+    <header class="row main-header">
         <%- include('base/menu', {active: 1}); %>
     </header>
     <main class="row container">
-        <section class="course-form">
-            <h2>Course Form:</h2>
-            <form action="/courses/<%= course.id %>" method="POST" accept-charset="utf-8">
-                <input class="btn-primary" type="submit" name="action" value="Delete">
-            </form>
+        <section class="course">
+            <header class="row">
+                <h2 class="title"><%= course.name %></h2>
+                <a href="#" class="like"><%= course.likes %></a>
+            </header>
+            <img src="/img/courses/<%= course.imageName %>" alt="<%= course.name %>">
+            <p class="description"><%= course.name %> <%= course.description %></p>
         </section>
     </main>
 </div>

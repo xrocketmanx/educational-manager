@@ -323,42 +323,56 @@ address {
   vertical-align: middle;
   cursor: pointer;
 }
-header {
+.like {
+  display: inline-block;
+  width: 24px;
+  height: 48px;
+  text-align: center;
+  font-size: 0.9em;
+}
+.like::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("../../img/star.png");
+}
+.main-header {
   background: url("../../img/mac.jpg");
   background-position: 340px 1px;
 }
-header .intro {
+.main-header .intro {
   color: #CAD2C5;
   padding-top: 35px;
   padding-bottom: 35px;
 }
-header .main-menu {
+.main-header .main-menu {
   position: relative;
   padding-top: 20px;
   padding-bottom: 20px;
   background: rgba(17, 21, 28, 0.6);
 }
-header .main-menu .logo-wrap {
+.main-header .main-menu .logo-wrap {
   min-width: 150px;
 }
-header .main-menu .nav-list {
+.main-header .main-menu .nav-list {
   padding-top: 17px;
 }
-header .main-menu address {
+.main-header .main-menu address {
   float: right;
   padding-top: 17px;
 }
-header .main-menu #btn-menu {
+.main-header .main-menu #btn-menu {
   display: none;
 }
-header .main-menu .logo-small::before {
+.main-header .main-menu .logo-small::before {
   margin-top: -19px;
 }
 @media only screen and (max-width: 769px) {
-  header .main-menu .main-nav {
+  .main-header .main-menu .main-nav {
     float: right;
   }
-  header .main-menu .main-nav .nav-list {
+  .main-header .main-menu .main-nav .nav-list {
     display: none;
     background: rgba(17, 21, 28, 0.9);
     position: absolute;
@@ -367,25 +381,25 @@ header .main-menu .logo-small::before {
     text-align: center;
     padding-top: 0;
   }
-  header .main-menu .main-nav .nav-list li {
+  .main-header .main-menu .main-nav .nav-list li {
     float: none;
     padding: 0;
     display: block;
   }
-  header .main-menu .main-nav .nav-list li a {
+  .main-header .main-menu .main-nav .nav-list li a {
     font-size: 1.5em;
     display: block;
     text-decoration: none;
     padding: .3em .7em;
     border-bottom: 1px solid #CAD2C5;
   }
-  header .main-menu .main-nav .nav-list li a.active {
+  .main-header .main-menu .main-nav .nav-list li a.active {
     background: #11151C;
   }
-  header .main-menu .main-nav .nav-list li:last-child a {
+  .main-header .main-menu .main-nav .nav-list li:last-child a {
     border: none;
   }
-  header .main-menu .main-nav #btn-menu:checked + ul {
+  .main-header .main-menu .main-nav #btn-menu:checked + ul {
     display: block;
   }
 }
@@ -418,7 +432,7 @@ footer .author {
 footer .footer-nav ul {
   padding-top: 17px;
 }
-header {
+.main-header {
   background: none;
 }
 main {

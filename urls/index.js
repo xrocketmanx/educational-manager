@@ -6,8 +6,10 @@ module.exports = function(app) {
 
     app.use('/', router('index'));
     app.use('/courses', router('courses'));
+    app.use('/course/', router('course'));
     app.use('/contacts', router('contacts'));
     app.use('/about', router('about'));
+    app.use('/editor', router('editor'));
 
     //urls for templates
     app.locals.urls = urls;

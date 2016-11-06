@@ -30,20 +30,6 @@ router.get('/', function(req, res) {
     });
 });
 
-router.get('/:id', function(req, res) {
-    Course.dao.get(req.params.id, function(error, course) {
-        res.render('course', {course: course});
-    });
-});
-
-router.post('/:id', function(req, res) {
-    if (req.body.action === 'Delete') {
-        Course.dao.delete({id: req.params.id});
-        res.redirect('/courses');
-    }
-    res.redirect('./');
-});
-
 module.exports = router;
 
 

@@ -191,3 +191,21 @@
   vertical-align: middle;
   cursor: pointer;
 }
+
+//TODO: make without div
+@like-size: 24px;
+.like {
+  display: inline-block;
+  width: @like-size;
+  height: @like-size * 2;
+  text-align: center;
+  font-size: 0.9em;
+
+  &::before {
+    content: '';
+    display: block;
+    width: @like-size;
+    height: @like-size;
+    background: url("@{img-path}star.png");
+  }
+}

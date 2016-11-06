@@ -61,8 +61,6 @@ main {
         display: block;
       }
 
-      @like-size: 24px;
-
       .reference {
         float: left;
         padding-top: @like-size - 2;
@@ -70,16 +68,6 @@ main {
 
       .like {
         float: right;
-        width: @like-size;
-        height: @like-size * 2;
-        text-align: center;
-        font-size: 0.9em;
-
-        div {
-          width: @like-size;
-          height: @like-size;
-          background: url("@{img-path}star.png");
-        }
       }
 
       @media only screen and (max-width: @width-media) {

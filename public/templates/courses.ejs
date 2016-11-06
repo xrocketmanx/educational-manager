@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="footer-push row">
-    <header class="row">
+    <header class="row main-header">
         <%- include('base/menu', {active: 1}); %>
     </header>
     <main class="row container">
@@ -36,9 +36,8 @@
                         <strong><%= course.name %></strong>
                         <%= course.description %>
                     </p>
-                    <a href="/courses/<%= course.id %>" class="reference">Дивитись більше...</a>
-                    <a href="#" class="like">
-                        <div></div><%= course.likes %></a>
+                    <a href="/course/<%= course.id %>" class="reference">Дивитись більше...</a>
+                    <a href="#" class="like"><%= course.likes %></a>
                 </article>
                 <% }); %>
             </div>
