@@ -16,7 +16,7 @@ DAO.prototype.update = function(model) {
     this.db.update({
         table: this.TABLE,
         values: this._prepareModel(model),
-        where: {id: {sign: '=', value: model.id}}
+        where: {id: model.id}
     });
     this.db.close();
 };
@@ -25,7 +25,7 @@ DAO.prototype.delete = function(model) {
     this.db.connect();
     this.db.delete({
         table: this.TABLE,
-        where: {id: {sign: '=', value: model.id}}
+        where: {id: model.id}
     });
     this.db.close();
 };
@@ -51,7 +51,7 @@ DAO.prototype.get = function(id, callback) {
     this.db.connect();
     this.db.select({
         table: this.TABLE,
-        where: {id: {value: id, sign: '='}}}, function(error, rows) {
+        where: {id: id}}, function(error, rows) {
         if (error) {
             callback(error);
         } else {

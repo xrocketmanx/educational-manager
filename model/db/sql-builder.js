@@ -45,7 +45,11 @@ SqlBuilder.prototype.where = function(values) {
 
     var parts = [];
     for (var key in values) {
-        parts.push(formatStatement(partPattern, key, values[key].sign, values[key].value));
+        if (typeof values[key] === 'object') {
+            parts.push(formatStatement(partPattern, key, values[key].sign, values[key].value));
+        } else {
+            parts.push(formatStatement(partPattern, key, '=', values[key]));
+        }
     }
     this.statement += formatStatement(pattern, parts.join(delimiter));
     return this;
