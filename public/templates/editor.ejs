@@ -20,10 +20,33 @@
                 </fieldset>
                 <fieldset class="fieldset">
                     <legend>Прикладені файли:</legend>
-                    <label>Картинка: <input type="file" name="image" accept="image/*,image/jpeg" required></label>
+                    <label>Зображення: <input type="file" name="image" accept="image/*,image/jpeg" required></label>
                 </fieldset>
                 <input type="submit" class="btn-primary" value="Створити">
             </form>
+        </section>
+        <section class="edit-courses">
+            <h2 class="title">Редагувати курси:</h2>
+            <% courses.forEach(function(course) { %>
+            <form class="form edit-form col-8 col-s-12" name="course" action="editor/edit" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+                <input type="hidden" name="id" value="<%= course.id %>">
+                <input type="hidden" name="imagename" value="<%= course.imageName %>">
+                <fieldset class="fieldset">
+                    <legend>Основна інформація:</legend>
+                    <label>Назва: <input type="text" class="input" name="name" size="32" value="<%= course.name %>" required></label>
+                    <label>Опис:
+                        <textarea class="input textarea" name="description" rows="6" cols="32" required><%= course.description %></textarea>
+                    </label>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend>Прикладені файли:</legend>
+                    <img src="/img/courses/<%= course.imageName %>" alt="<%= course.name %>">
+                    <label>Змінити зображення: <input type="file" name="image" accept="image/*,image/jpeg"></label>
+                </fieldset>
+                <input type="submit" name="delete" class="btn-danger" value="Видалити">
+                <input type="submit" name="update" class="btn-success" value="Змінити">
+            </form>
+            <% }); %>
         </section>
     </main>
 </div>

@@ -326,8 +326,7 @@ address {
 }
 @media only screen and (max-width: 769px) {
   .input,
-  .textarea,
-  input[type=submit] {
+  .textarea {
     width: 100%;
   }
   .form {
@@ -340,42 +339,86 @@ address {
 /*
  *BUTTONS
 */
-.btn {
-  padding: 10px 15px;
-  font-size: 0.83em;
-  background: none;
-  border: 1px solid #11151C;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  transition: background .2s, color .2s;
-}
-.btn:hover {
-  cursor: pointer;
-}
-.btn:focus {
-  outline: none;
-}
 .btn-primary {
   padding: 10px 15px;
   font-size: 0.83em;
   background: none;
+  color: #11151C;
   border: 1px solid #11151C;
   text-transform: uppercase;
   letter-spacing: .05em;
   transition: background .2s, color .2s;
 }
 .btn-primary:hover {
+  background: #11151C;
+  color: #CAD2C5;
   cursor: pointer;
+}
+.btn-primary:active {
+  transform: translateY(1px);
 }
 .btn-primary:focus {
   outline: none;
 }
-.btn-primary:hover {
-  background: #11151C;
-  color: #CAD2C5;
+@media only screen and (max-width: 769px) {
+  .btn-primary {
+    width: 100%;
+    margin-top: 5px;
+  }
 }
-.btn-primary:active {
+.btn-success {
+  padding: 10px 15px;
+  font-size: 0.83em;
+  background: none;
+  color: #2db34a;
+  border: 1px solid #2db34a;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  transition: background .2s, color .2s;
+}
+.btn-success:hover {
+  background: #2db34a;
+  color: #fefffe;
+  cursor: pointer;
+}
+.btn-success:active {
   transform: translateY(1px);
+}
+.btn-success:focus {
+  outline: none;
+}
+@media only screen and (max-width: 769px) {
+  .btn-success {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
+.btn-danger {
+  padding: 10px 15px;
+  font-size: 0.83em;
+  background: none;
+  color: #d9534f;
+  border: 1px solid #d9534f;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  transition: background .2s, color .2s;
+}
+.btn-danger:hover {
+  background: #d9534f;
+  color: #fefffe;
+  cursor: pointer;
+}
+.btn-danger:active {
+  transform: translateY(1px);
+}
+.btn-danger:focus {
+  outline: none;
+}
+@media only screen and (max-width: 769px) {
+  .btn-danger {
+    width: 100%;
+    margin-top: 5px;
+  }
 }
 /*
  *SORT DIR ICON
@@ -513,4 +556,16 @@ main a.active {
 }
 .title {
   padding: 15px 0;
+}
+.create-course {
+  padding-bottom: 15px;
+  border-bottom: 2px solid #11151C;
+}
+.edit-courses img {
+  display: block;
+  margin: 10px 0;
+}
+.edit-courses .edit-form {
+  margin-bottom: 30px;
+  clear: both;
 }

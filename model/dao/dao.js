@@ -77,7 +77,8 @@ DAO.prototype._prepareModel = function(model) {
     var prepared = {};
     for (var key in model) {
         if (model.hasOwnProperty(key) && key !== 'id') {
-            prepared[key] = model[key];
+            var modified = key.replace(/([A-Z])/g, '_$1').toLowerCase();
+            prepared[modified] = model[key];
         }
     }
     return prepared;

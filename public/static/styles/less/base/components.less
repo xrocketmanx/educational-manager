@@ -205,7 +205,7 @@
 }
 
 @media only screen and (max-width: @width-media) {
-  .input, .textarea, input[type=submit] {
+  .input, .textarea {
     width: 100%;
   }
   .form {
@@ -219,35 +219,46 @@
 /*
  *BUTTONS
 */
-.btn {
+.btn(@color, @font-color) {
   padding: 10px 15px;
   font-size: 0.83em;
   background: none;
-  border: 1px solid @dark-grey;
+  color: @color;
+  border: 1px solid @color;
   text-transform: uppercase;
   letter-spacing: .05em;
   transition: background .2s, color .2s;
 
   &:hover {
+    background: @color;
+    color: @font-color;
     cursor: pointer;
-  }
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.btn-primary {
-  .btn;
-
-  &:hover {
-    background: @dark-grey;
-    color: @white;
   }
 
   &:active {
     transform: translateY(1px);
   }
+
+  &:focus {
+    outline: none;
+  }
+
+  @media only screen and (max-width: @width-media) {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
+
+.btn-primary {
+  .btn(@dark-grey, @white);
+}
+
+.btn-success {
+  .btn(@green, lighten(@white, 20%));
+}
+
+.btn-danger {
+  .btn(#d9534f, lighten(@white, 20%));
 }
 
 /*
