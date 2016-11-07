@@ -343,6 +343,7 @@ address {
  *BUTTONS
 */
 .btn-primary {
+  display: inline-block;
   padding: 10px 15px;
   font-size: 0.83em;
   background: none;
@@ -350,6 +351,7 @@ address {
   border: 1px solid #11151C;
   text-transform: uppercase;
   letter-spacing: .05em;
+  text-align: center;
   transition: background .2s, color .2s;
 }
 .btn-primary:hover {
@@ -370,6 +372,7 @@ address {
   }
 }
 .btn-success {
+  display: inline-block;
   padding: 10px 15px;
   font-size: 0.83em;
   background: none;
@@ -377,6 +380,7 @@ address {
   border: 1px solid #2db34a;
   text-transform: uppercase;
   letter-spacing: .05em;
+  text-align: center;
   transition: background .2s, color .2s;
 }
 .btn-success:hover {
@@ -397,6 +401,7 @@ address {
   }
 }
 .btn-danger {
+  display: inline-block;
   padding: 10px 15px;
   font-size: 0.83em;
   background: none;
@@ -404,6 +409,7 @@ address {
   border: 1px solid #d9534f;
   text-transform: uppercase;
   letter-spacing: .05em;
+  text-align: center;
   transition: background .2s, color .2s;
 }
 .btn-danger:hover {

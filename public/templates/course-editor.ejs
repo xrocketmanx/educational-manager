@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <%- include('base/head'); %>
+    <link rel="stylesheet" typDe="text/css" href="/styles/css/course-editor.css">
+</head>
+<body>
+<div class="footer-push row">
+    <header class="row main-header">
+        <%- include('base/menu', {active: 2}); %>
+    </header>
+    <main class="row container">
+        <section class="create-lecture">
+            <h2 class="title">Створити лекцію:</h2>
+            <form class="form" name="lecture" action="" method="POST" accept-charset="utf-8">
+                <label>Посилання на відео: <input type="url" class="input" name="videoUrl" size="32" required></label>
+                <label>Опис: <textarea class="input textarea" name="description" rows="6" cols="32" required></textarea></label>
+                <input type="submit" class="btn-primary" value="Створити">
+            </form>
+        </section>
+        <section class="edit-lectures">
+            <h2 class="title">Редагувати лекції:</h2>
+            <% lectures.forEach(function(lecture) { %>
+            <form class="form" name="lecture" action="<%= lecture.id %>/edit" method="POST" accept-charset="utf-8">
+                <input type="hidden" name="id" value="<%= lecture.id %>">
+                <label>Посилання на відео:
+                    <input type="url" class="input" name="videoUrl" size="32" value="<%= lecture.videoUrl %>" required>
+                </label>
+                <label>Опис:
+                    <textarea class="input textarea" name="description" rows="6" cols="32" required><%= lecture.description %>
+                    </textarea>
+                </label>
+                <input type="submit" name="delete" class="btn-danger" value="Видалити">
+                <input type="submit" name="update" class="btn-success" value="Змінити">
+            </form>
+            <% }); %>
+        </section>
+    </main>
+</div>
+<%- include('base/footer'); %>
+</body>
+</html>

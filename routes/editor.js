@@ -4,6 +4,7 @@ var multer = require('multer');
 var upload = multer({storage: getImagesStorage()});
 var fs = require('fs');
 var Course = require('../model/course');
+var Lecture = require('../model/lecture');
 
 router.get('/', function(req, res) {
     Course.dao.select(function(error, courses) {
@@ -14,7 +15,7 @@ router.get('/', function(req, res) {
 router.post('/', upload.single('image'), function(req, res) {
     var course = new Course(req.body.name, req.body.description, 0, req.file.filename, Date.now());
     Course.dao.insert(course);
-    res.redirect('/editor');
+    res.redirect('back');
 });
 
 router.post('/edit', upload.single('image'), function(req, res) {
@@ -22,6 +23,7 @@ router.post('/edit', upload.single('image'), function(req, res) {
     if (req.body.delete) {
         fs.unlinkSync(IMAGES_PATH + req.body.imagename);
         Course.dao.delete({id: req.body.id});
+        Lecture.dao.delete({course_id: req.body.id});
     } else {
         var values = {id: req.body.id, name: req.body.name, description: req.body.description};
         if (req.file) {
@@ -30,7 +32,7 @@ router.post('/edit', upload.single('image'), function(req, res) {
         }
         Course.dao.update(values);
     }
-    res.redirect('/editor');
+    res.redirect('back');
 });
 
 function getImagesStorage() {

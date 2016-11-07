@@ -10,6 +10,7 @@ module.exports = function(app) {
     app.use('/contacts', router('contacts'));
     app.use('/about', router('about'));
     app.use('/editor', router('editor'));
+    app.use('/editor/course/', router('course-editor'));
 
     //urls for templates
     app.locals.urls = urls;

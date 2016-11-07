@@ -566,15 +566,3 @@ main a.active {
 .title {
   padding: 15px 0;
 }
-.create-course {
-  padding-bottom: 15px;
-  border-bottom: 2px solid #11151C;
-}
-.edit-courses img {
-  display: block;
-  margin: 10px 0;
-}
-.edit-courses .edit-form {
-  margin-bottom: 30px;
-  clear: both;
-}

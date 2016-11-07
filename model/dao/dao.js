@@ -21,11 +21,11 @@ DAO.prototype.update = function(model) {
     this.db.close();
 };
 
-DAO.prototype.delete = function(model) {
+DAO.prototype.delete = function(options) {
     this.db.connect();
     this.db.delete({
         table: this.TABLE,
-        where: {id: model.id}
+        where: options
     });
     this.db.close();
 };

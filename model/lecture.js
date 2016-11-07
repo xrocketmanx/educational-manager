@@ -1,4 +1,4 @@
-var LectureDAO = require('./dao/feedback-dao');
+var LectureDAO = require('./dao/lecture-dao');
 
 function Lecture(description, videoUrl, courseId, id) {
     this.id = id;
