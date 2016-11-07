@@ -18,7 +18,7 @@ router.post('/:id/edit', function(req, res) {
     if (req.body.delete) {
         Lecture.dao.delete({id: req.body.id});
     } else {
-        var values = {videoUrl: req.body.videoUrl, description: req.body.description};
+        var values = {id: req.body.id, videoUrl: req.body.videoUrl, description: req.body.description};
         Lecture.dao.update(values);
     }
     res.redirect('back');

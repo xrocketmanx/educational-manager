@@ -19,6 +19,17 @@
             <img src="/img/courses/<%= course.imageName %>" alt="<%= course.name %>">
             <p class="description"><%= course.name %> <%= course.description %></p>
         </section>
+        <section class="lectures">
+            <h2 class="title">Лекції: </h2>
+            <% lectures.forEach(function(lecture) { %>
+                <article class="lecture">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ukg_U3CnJWI" frameborder="0" allowfullscreen></iframe>
+                    <p class="description">
+                        <%= lecture.description %>
+                    </p>
+                </article>
+            <% }); %>
+        </section>
     </main>
 </div>
 <%- include('base/footer'); %>

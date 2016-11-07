@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var Course = require('../model/course');
+var Lecture = require('../model/lecture');
 
 router.get('/:id', function(req, res) {
     Course.dao.get(req.params.id, function(error, course) {
-        res.render('course', {course: course});
+        Lecture.dao.select(function(error, lectures) {
+            res.render('course', {course: course, lectures: lectures});
+        }, {where: {course_id: req.params.id}});
     });
 });
 
