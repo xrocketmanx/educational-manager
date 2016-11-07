@@ -3,6 +3,7 @@
 <head>
     <%- include('base/head'); %>
     <link rel="stylesheet" typDe="text/css" href="/styles/css/course.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="footer-push row">
@@ -13,7 +14,7 @@
         <section class="course">
             <header class="row">
                 <h2 class="title"><%= course.name %></h2>
-                <a href="#" class="like"><%= course.likes %></a>
+                <a href="/course/<%= course.id %>/like" class="like"><%= course.likes %></a>
             </header>
             <img src="/img/courses/<%= course.imageName %>" alt="<%= course.name %>">
             <p class="description"><%= course.name %> <%= course.description %></p>
@@ -21,5 +22,6 @@
     </main>
 </div>
 <%- include('base/footer'); %>
+<script src="/scripts/js/course.js"></script>
 </body>
 </html>
