@@ -573,3 +573,6 @@ main a.active {
 .course .like {
   margin-left: 10px;
 }
+iframe {
+  max-width: 100%;
+}
