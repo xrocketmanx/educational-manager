@@ -21,6 +21,26 @@ main {
   }
 }
 
+.lectures {
+  .title {
+    padding: @title-padding 0;
+  }
+}
+
+.lecture {
+  padding: @title-padding 0;
+  border-bottom: 1px solid @white;
+
+  &:last-child {
+    border: none;
+  }
+
+  .description {
+    margin: @title-padding / 2 0;
+    max-width: 560px;
+  }
+}
+
 iframe {
   max-width: 100%;
 }

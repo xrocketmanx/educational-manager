@@ -6,6 +6,7 @@
         <entryData>
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/public/static/img" />
+            <path value="file://$PROJECT_DIR$/public/static/files" />
           </resourceRoots>
         </entryData>
       </entry>

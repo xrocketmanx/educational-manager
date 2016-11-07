@@ -23,10 +23,15 @@
             <h2 class="title">Лекції: </h2>
             <% lectures.forEach(function(lecture) { %>
                 <article class="lecture">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ukg_U3CnJWI" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="<%= lecture.videoUrl %>" frameborder="0" allowfullscreen></iframe>
                     <p class="description">
                         <%= lecture.description %>
                     </p>
+                    <% if (lecture.attachedFile) { %>
+                        <a class="attachment" href="/files/<%= lecture.attachedFile %>" target="_blank">
+                            <%= lecture.attachedFile.replace(/\-\d+\./, '.') %>
+                        </a>
+                    <% } %>
                 </article>
             <% }); %>
         </section>
