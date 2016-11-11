@@ -40,7 +40,7 @@ SqlBuilder.prototype.where = function(values) {
     if (!values) return this;
 
     var pattern = " WHERE $";
-    var partPattern = "$ $ '$'";
+    var partPattern = "$ $ '@'";
     var delimiter = " AND ";
 
     var parts = [];
@@ -73,7 +73,7 @@ SqlBuilder.prototype.order = function(values) {
 SqlBuilder.prototype.limit = function(options) {
     if (!options) return this;
 
-    var pattern = " LIMIT '$' OFFSET '$'";
+    var pattern = " LIMIT '@' OFFSET '@'";
 
     this.statement += formatStatement(pattern, options.num, options.offset || 0);
     return this;
@@ -81,7 +81,7 @@ SqlBuilder.prototype.limit = function(options) {
 
 SqlBuilder.prototype.set = function(values) {
     var pattern = " SET $";
-    var partPattern = "$ = '$'";
+    var partPattern = "$ = '@'";
     var delimiter = ",";
 
     var parts = [];
@@ -94,7 +94,7 @@ SqlBuilder.prototype.set = function(values) {
 
 SqlBuilder.prototype.values = function(values) {
     var pattern = " ($) VALUES ($)";
-    var partPattern = "'$'";
+    var partPattern = "'@'";
     var delimiter = ",";
 
     var keys = [];
@@ -114,9 +114,19 @@ function formatStatement(command) {
     for (var i = 0, j = 1; i < command.length; i++) {
         if (command[i] === '$') {
             result += arguments[j++];
+        } else if (command[i] === '@') {
+            result += quote(arguments[j++]);
         } else {
             result += command[i];
         }
     }
     return result;
+}
+
+function quote(value) {
+    if (typeof value === 'string') {
+        return value.replace(/'/g, '');
+    } else {
+        return value;
+    }
 }
