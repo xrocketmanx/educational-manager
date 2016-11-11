@@ -20,9 +20,9 @@ router.post('/', filesaver.upload.single('image'), function(req, res) {
 
 router.post('/edit', filesaver.upload.single('image'), function(req, res) {
     if (req.body.delete) {
-        filesaver.remove(req.body.imagename);
         Course.dao.delete({id: req.body.id});
         Lecture.dao.delete({course_id: req.body.id});
+        filesaver.remove(req.body.imagename);
     } else {
         var values = {id: req.body.id, name: req.body.name, description: req.body.description};
         if (req.file) {
