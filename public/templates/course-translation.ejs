@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <%- include('base/head'); %>
+    <title>Трансляція</title>
+    <meta name="description" content="Educational manager course video translation"/>
+    <link rel="stylesheet" typDe="text/css" href="/styles/css/course-translation.css">
+
+    <script src="/scripts/js/socket-events.js"></script>
+    <script src="/scripts/js/video-broadcast.js"></script>
+</head>
+<body>
+<div class="footer-push row">
+    <header class="row main-header">
+        <%- include('base/menu', {active: 1}); %>
+    </header>
+    <main class="row container">
+        <video></video>
+        <img>
+        <button id="broadcast" class="btn-primary">Broadcast</button>
+        <button id="stop" class="btn-danger">Stop Broadcast</button>
+        <button id="capture" class="btn-primary">Capture</button>
+        <button id="stopPlayback" class="btn-danger">Stop Capture</button>
+    </main>
+</div>
+<%- include('base/footer'); %>
+<script>
+    var videoBroadcast = new VideoBroadcast({
+        url: 'ws://localhost:3001',
+        videoElement: document.querySelector('video'),
+        imageElement: document.querySelector('img'),
+        height: 360,
+        fps: 24,
+        room: <%= courseId %>
+    });
+    broadcast.onclick = function() {
+        videoBroadcast.start();
+    };
+    stop.onclick = function() {
+        videoBroadcast.stop();
+    };
+    capture.onclick = function() {
+        videoBroadcast.subscribe();
+    };
+    stopPlayback.onclick = function() {
+        videoBroadcast.stopPlayback();
+    };
+</script>
+</body>
+</html>

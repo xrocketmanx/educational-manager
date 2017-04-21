@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        img {
+            height: 75vh;
+        }
+    </style>
+    <script src="../socket-events/client.js"></script>
+    <script src="../api/video-broadcast.js"></script>
+</head>
+<body>
+<video></video>
+<img>
+<button id="broadcast">Broadcast</button>
+<button id="stop">Stop Broadcast</button>
+<button id="capture">Capture</button>
+<button id="stopPlayback">Stop Capture</button>
+<script>
+    var videoBroadcast = new VideoBroadcast({
+        url: 'ws://localhost:3001',
+        videoElement: document.querySelector('video'),
+        imageElement: document.querySelector('img'),
+        height: 360,
+        fps: 24
+    });
+    broadcast.onclick = function() {
+        videoBroadcast.start();
+    };
+    stop.onclick = function() {
+        videoBroadcast.stop();
+    };
+    capture.onclick = function() {
+        videoBroadcast.subscribe();
+    };
+    stopPlayback.onclick = function() {
+        videoBroadcast.stopPlayback();
+    };
+</script>
+</body>
+</html>
