@@ -2,7 +2,15 @@
 var VideoBroadcast = (function(window, undefined) {
     "use strict";
 
+    VideoBroadcast.STATES = {
+        BROADCASTING: 'BROADCASTING',
+        CAPTURING: 'CAPTURING',
+        WAITiNG: 'WAITING'
+    };
+
     function VideoBroadcast(options) {
+        this.state = VideoBroadcast.STATES.WAITiNG;
+
         this._room = options.room || '';
         this._delay = options.delay = options.delay || 3000;
         this._url = options.url;
@@ -13,6 +21,8 @@ var VideoBroadcast = (function(window, undefined) {
     }
 
     VideoBroadcast.prototype.start = function(callback) {
+        if (this.state !== VideoBroadcast.STATES.WAITiNG) return;
+
         var self = this;
         this._socketEvents.open(this._url, function() {
             navigator.mediaDevices.getUserMedia({
@@ -29,22 +39,32 @@ var VideoBroadcast = (function(window, undefined) {
 
                 self._handleAudioStream(self._audioStream);
                 self._handleVideoStream(self._videoStream);
+
+                self.state = VideoBroadcast.STATES.BROADCASTING;
             }).then(callback);
         });
     };
 
     VideoBroadcast.prototype.stopPlayback = function() {
+        if (this.state !== VideoBroadcast.STATES.CAPTURING) return;
+
         this._framesBroadcast.stopPlayback();
         this._audioBroadcast.stopPlayback();
         this._socketEvents.close();
+
+        this.state = VideoBroadcast.STATES.WAITiNG;
     };
 
     VideoBroadcast.prototype.stop = function() {
+        if (this.state !== VideoBroadcast.BROADCASTING) return;
+
         this._framesBroadcast.stop();
         this._audioBroadcast.stop();
         this._closeStream(this._audioStream);
         this._closeStream(this._videoStream);
         this._socketEvents.send(this._room + '/stop');
+
+        this.state = VideoBroadcast.STATES.WAITiNG;
     };
 
     VideoBroadcast.prototype._closeStream = function(stream) {
@@ -54,8 +74,11 @@ var VideoBroadcast = (function(window, undefined) {
     };
 
     VideoBroadcast.prototype.subscribe = function(onstart, onstop) {
+        if (this.state !== VideoBroadcast.STATES.WAITiNG) return;
+
         var self = this;
         this._socketEvents.open(this._url, function() {
+            self.state = VideoBroadcast.STATES.CAPTURING;
             self._socketEvents.setBinaryType('blob');
 
             var delayFrames = true;
