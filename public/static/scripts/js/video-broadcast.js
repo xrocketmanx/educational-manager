@@ -1,4 +1,3 @@
-//TODO: callbacks fires twice after stop after continue (problem in socket-events)
 var VideoBroadcast = (function(window, undefined) {
     "use strict";
 

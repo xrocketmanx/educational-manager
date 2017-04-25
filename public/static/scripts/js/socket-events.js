@@ -17,6 +17,7 @@ SocketEvents.prototype.open = function(url, callback) {
         this._callbacks.forEach(callback => {
             callback();
         });
+        this._callbacks = [];
     };
 
     let forwardEvent;
