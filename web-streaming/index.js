@@ -1,8 +1,8 @@
 const SocketEvents = require('./socket-events');
 
-exports.startServer = function(port) {
+exports.startServer = function(server) {
     let socketEvents = new SocketEvents();
-    socketEvents.open(port);
+    socketEvents.open(server);
 
-    console.log('ws server listening on ' + port);
+    console.log('ws server listening');
 };

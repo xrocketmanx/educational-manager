@@ -26,7 +26,7 @@
 <%- include('base/footer'); %>
 <script>
     var videoBroadcast = new VideoBroadcast({
-        url: 'wss://edu-manager.herokuapp.com:8080',
+        url: location.origin.replace(/^http/, 'ws'),
         videoElement: document.querySelector('video'),
         imageElement: document.querySelector('img'),
         height: 360,

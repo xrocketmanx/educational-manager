@@ -5,8 +5,8 @@ function SocketEvents() {
     this._lobby = new Lobby();
 }
 
-SocketEvents.prototype.open = function(port) {
-    this._server = new WebSocketServer.Server({port});
+SocketEvents.prototype.open = function(server) {
+    this._server = new WebSocketServer.Server({server});
 
     this._server.on('connection', client => {
         let subscriptions = [];
