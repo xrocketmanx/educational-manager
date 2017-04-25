@@ -1,3 +1,4 @@
+//TODO: callbacks fires twice after stop after continue (problem in socket-events)
 var VideoBroadcast = (function(window, undefined) {
     "use strict";
 
@@ -43,6 +44,7 @@ var VideoBroadcast = (function(window, undefined) {
         this._audioBroadcast.stop();
         this._closeStream(this._audioStream);
         this._closeStream(this._videoStream);
+        this._socketEvents.send(this._room + '/stop');
     };
 
     VideoBroadcast.prototype._closeStream = function(stream) {
@@ -51,17 +53,28 @@ var VideoBroadcast = (function(window, undefined) {
         });
     };
 
-    VideoBroadcast.prototype.subscribe = function() {
+    VideoBroadcast.prototype.subscribe = function(onstart, onstop) {
         var self = this;
         this._socketEvents.open(this._url, function() {
             self._socketEvents.setBinaryType('blob');
 
-            var firstCall = true;
+            var delayFrames = true;
+            self._socketEvents.on(self._room + '/restart', function() {
+                delayFrames = true;
+            });
+
+            self._socketEvents.on(self._room + '/stop', function() {
+                if (onstop) onstop();
+                self._framesBroadcast.stopPlayback();
+                self._audioBroadcast.stopPlayback();
+            });
+
             self._socketEvents.on(self._room + '/frames', function(frame) {
                 self._framesBroadcast.pushFrame(frame);
-                if (firstCall) {
-                    firstCall = false;
+                if (delayFrames) {
+                    delayFrames = false;
                     setTimeout(function() {
+                        if (onstart) onstart();
                         self._framesBroadcast.startPlayback();
                     }, self._delay);
                 }
@@ -83,6 +96,7 @@ var VideoBroadcast = (function(window, undefined) {
 
     VideoBroadcast.prototype._handleVideoStream = function(stream) {
         var self = this;
+        this._socketEvents.send(this._room + '/restart');
         this._framesBroadcast.handleStream(stream);
         this._framesBroadcast.onframe = function(frame) {
             self._socketEvents.send(self._room + '/frames', frame);

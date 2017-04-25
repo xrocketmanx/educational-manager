@@ -6,7 +6,7 @@
     <meta name="description" content="Educational manager course video translation"/>
     <link rel="stylesheet" typDe="text/css" href="/styles/css/course-translation.css">
 
-    <script src="/scripts/js/socket-events.js"></script>
+    <script src="/scripts/libs/socket-events.js"></script>
     <script src="/scripts/js/video-broadcast.js"></script>
 </head>
 <body>
@@ -49,8 +49,11 @@
         recordingVideo.style.display = 'none';
     };
     document.getElementById('capture').onclick = function() {
-        videoBroadcast.subscribe();
-        framesContainer.hidden = false;
+        videoBroadcast.subscribe(function() {
+            framesContainer.hidden = false;
+        }, function() {
+            framesContainer.hidden = true;
+        });
     };
     document.getElementById('stopPlayback').onclick = function() {
         videoBroadcast.stopPlayback();
