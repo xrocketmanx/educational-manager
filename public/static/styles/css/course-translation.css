@@ -569,6 +569,17 @@ footer .author {
 footer .footer-nav ul {
   padding-top: 17px;
 }
-img {
+.container {
+  text-align: center;
+}
+.control-buttons {
+  margin-top: 25px;
+}
+.recording-video {
+  display: block;
+  margin: 25px auto;
+}
+.frames-container {
   height: 75vh;
+  margin: 25px auto;
 }

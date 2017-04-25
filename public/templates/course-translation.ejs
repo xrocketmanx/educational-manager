@@ -15,35 +15,46 @@
         <%- include('base/menu', {active: 1}); %>
     </header>
     <main class="row container">
-        <video></video>
-        <img>
-        <button id="broadcast" class="btn-primary">Broadcast</button>
-        <button id="stop" class="btn-danger">Stop Broadcast</button>
-        <button id="capture" class="btn-primary">Capture</button>
-        <button id="stopPlayback" class="btn-danger">Stop Capture</button>
+        <section class="control-buttons">
+            <button id="broadcast" class="btn-primary">Broadcast</button>
+            <button id="stop" class="btn-danger">Stop Broadcast</button>
+            <button id="capture" class="btn-primary">Capture</button>
+            <button id="stopPlayback" class="btn-danger">Stop Capture</button>
+        </section>
+        <video id="recording-video" class="recording-video" style="display: none"></video>
+        <img id="frames-container" class="frames-container" hidden>
     </main>
 </div>
 <%- include('base/footer'); %>
 <script>
+    var recordingVideo = document.querySelector('#recording-video'),
+        framesContainer = document.querySelector('#frames-container');
+
     var videoBroadcast = new VideoBroadcast({
         url: location.origin.replace(/^http/, 'ws'),
-        videoElement: document.querySelector('video'),
-        imageElement: document.querySelector('img'),
+        videoElement: recordingVideo,
+        imageElement: framesContainer,
         height: 360,
         fps: 24,
         room: <%= courseId %>
     });
-    broadcast.onclick = function() {
-        videoBroadcast.start();
+
+    document.getElementById('broadcast').onclick = function() {
+        videoBroadcast.start(function() {
+            recordingVideo.style.display = '';
+        });
     };
-    stop.onclick = function() {
+    document.getElementById('stop').onclick = function() {
         videoBroadcast.stop();
+        recordingVideo.style.display = 'none';
     };
-    capture.onclick = function() {
+    document.getElementById('capture').onclick = function() {
         videoBroadcast.subscribe();
+        framesContainer.hidden = false;
     };
-    stopPlayback.onclick = function() {
+    document.getElementById('stopPlayback').onclick = function() {
         videoBroadcast.stopPlayback();
+        framesContainer.hidden = true;
     };
 </script>
 </body>

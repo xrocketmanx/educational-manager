@@ -12,7 +12,7 @@ var VideoBroadcast = (function(window, undefined) {
         this._socketEvents = new SocketEvents();
     }
 
-    VideoBroadcast.prototype.start = function() {
+    VideoBroadcast.prototype.start = function(callback) {
         var self = this;
         this._socketEvents.open(this._url, function() {
             navigator.mediaDevices.getUserMedia({
@@ -29,7 +29,7 @@ var VideoBroadcast = (function(window, undefined) {
 
                 self._handleAudioStream(self._audioStream);
                 self._handleVideoStream(self._videoStream);
-            });
+            }).then(callback);
         });
     };
 

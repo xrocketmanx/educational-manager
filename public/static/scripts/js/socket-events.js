@@ -1,19 +1,3 @@
-function PubSub() {
-    let events = {};
-    this.on = function(eventType, callback) {
-        if (!events[eventType]) {
-            events[eventType] = [];
-        }
-        events[eventType].push(callback);
-    };
-
-    this.emit = function(eventType, ...args) {
-        for (let callback of events[eventType]) {
-            callback(...args);
-        }
-    };
-}
-
 //TODO: Reconnect ability
 function SocketEvents() {
     this._rooms = {};
