@@ -6,8 +6,8 @@
     <meta name="description" content="Educational manager course video translation"/>
     <link rel="stylesheet" typDe="text/css" href="/styles/css/course-translation.css">
 
-    <script src="/scripts/libs/socket-events.js"></script>
-    <script src="/scripts/js/video-broadcast.js"></script>
+    <script src="/scripts/libs/socket-events.js" defer></script>
+    <script src="/scripts/js/course-translation.js" defer></script>
 </head>
 <body>
 <div class="footer-push row">
@@ -27,38 +27,7 @@
 </div>
 <%- include('base/footer'); %>
 <script>
-    var recordingVideo = document.querySelector('#recording-video'),
-        framesContainer = document.querySelector('#frames-container');
-
-    var videoBroadcast = new VideoBroadcast({
-        url: location.origin.replace(/^http/, 'ws'),
-        videoElement: recordingVideo,
-        imageElement: framesContainer,
-        height: 360,
-        fps: 24,
-        room: <%= courseId %>
-    });
-
-    document.getElementById('broadcast').onclick = function() {
-        videoBroadcast.start(function() {
-            recordingVideo.style.display = '';
-        });
-    };
-    document.getElementById('stop').onclick = function() {
-        videoBroadcast.stop();
-        recordingVideo.style.display = 'none';
-    };
-    document.getElementById('capture').onclick = function() {
-        videoBroadcast.subscribe(function() {
-            framesContainer.hidden = false;
-        }, function() {
-            framesContainer.hidden = true;
-        });
-    };
-    document.getElementById('stopPlayback').onclick = function() {
-        videoBroadcast.stopPlayback();
-        framesContainer.hidden = true;
-    };
+    var courseId = <%= courseId %>;
 </script>
 </body>
 </html>
