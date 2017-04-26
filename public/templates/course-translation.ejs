@@ -15,16 +15,6 @@
         <%- include('base/menu', {active: 1}); %>
     </header>
     <main class="row">
-        <section class="translation container">
-            <section class="control-buttons">
-                <button id="broadcast" class="btn-primary">Транслювати</button>
-                <button id="stop" class="btn-danger">Зупинити трансляцію</button>
-                <button id="capture" class="btn-primary">Відобразити трансляцію</button>
-                <button id="stopPlayback" class="btn-danger">Зупинити відображення</button>
-            </section>
-            <video id="recording-video" class="recording-video" style="display: none"></video>
-            <img id="frames-container" class="frames-container" hidden>
-        </section>
         <aside class="chat">
             <form class="form" name="chat" autocomplete="off">
                 <h2>Чат</h2>
@@ -36,6 +26,16 @@
                 <input class="btn btn-primary" type="submit" value="Відправити">
             </form>
         </aside>
+        <section class="translation container">
+            <section class="control-buttons">
+                <button id="broadcast" class="btn-primary">Транслювати</button>
+                <button id="stop" class="btn-danger">Зупинити трансляцію</button>
+                <button id="capture" class="btn-primary">Відобразити трансляцію</button>
+                <button id="stopPlayback" class="btn-danger">Зупинити відображення</button>
+            </section>
+            <video id="recording-video" class="recording-video" style="display: none"></video>
+            <img id="frames-container" class="frames-container" hidden>
+        </section>
     </main>
 </div>
 <%- include('base/footer'); %>
