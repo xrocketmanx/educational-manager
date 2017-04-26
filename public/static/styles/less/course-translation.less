@@ -17,3 +17,20 @@
   height: 75vh;
   margin: 25px auto;
 }
+
+.chat {
+  float: left;
+  margin-left: 5px;
+
+  .textarea {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: @width-media) {
+    float: none;
+  }
+}
+
+textarea {
+  resize: none;
+}

@@ -19,6 +19,10 @@ var VideoBroadcast = (function(window, undefined) {
         this._socketEvents = new SocketEvents();
     }
 
+    VideoBroadcast.prototype.getSocket = function () {
+        return this._socketEvents;
+    };
+
     VideoBroadcast.prototype.start = function(callback) {
         if (this.state !== VideoBroadcast.STATES.WAITiNG) return;
 
