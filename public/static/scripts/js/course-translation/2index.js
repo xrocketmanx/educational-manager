@@ -12,6 +12,10 @@ var videoBroadcast = new VideoBroadcast({
     room: courseId
 });
 
+document.getElementById('rotate').onclick = function() {
+    document.getElementById('frames-container').classList.toggle('phone-fix');
+};
+
 document.getElementById('broadcast').onclick = function() {
     videoBroadcast.start(function() {
         recordingVideo.style.display = '';

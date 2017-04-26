@@ -569,6 +569,19 @@ footer .author {
 footer .footer-nav ul {
   padding-top: 17px;
 }
+.rotate-wrapper {
+  display: inline-block;
+  padding-top: 10px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.rotate {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url("../../img/rotate-option.png");
+}
 .translation {
   text-align: center;
 }
@@ -582,6 +595,9 @@ footer .footer-nav ul {
 .frames-container {
   height: 75vh;
   margin: 25px auto;
+}
+.phone-fix {
+  transform: rotate(180deg) scaleX(-1);
 }
 .chat {
   float: left;
